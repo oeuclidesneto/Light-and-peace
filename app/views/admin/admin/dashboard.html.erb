@@ -1,0 +1,26 @@
+<h1>Admin Dashboard</h1>
+
+<p>Welcome to your admin dashboard!</p>
+
+<h2>Manage Posts</h2>
+
+<!-- Links to create a new post and go back to all posts -->
+<%= link_to 'New Post', new_admin_post_path %> |
+<%= link_to 'Back to Posts', admin_posts_path %>
+
+<hr>
+
+<h3>Existing Posts</h3>
+<% if @posts.any? %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <%= post.title %> |
+        <%= link_to 'Edit', edit_admin_post_path(post) %> |
+        <%= link_to 'Delete', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No posts found.</p>
+<% end %>

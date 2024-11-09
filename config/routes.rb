@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Admin routes (requires authentication and admin privileges)
+  # Direct route for /dashboard, handled by Admin::AdminController
+  get 'dashboard', to: 'admin/admin#dashboard', as: :admin_dashboard
+
+  # Admin namespace for other admin routes
   namespace :admin do
-    get 'dashboard', to: 'admin#dashboard'
+    resources :posts
   end
 end
