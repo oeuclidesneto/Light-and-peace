@@ -7,6 +7,7 @@ class Admin::AdminController < ApplicationController
     @posts = Post.all
   end
 
+
   private
 
   def check_admin
