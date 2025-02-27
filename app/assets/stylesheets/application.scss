@@ -64,3 +64,24 @@
 .btn:hover {
   background-color: #0056b3;
 }
+
+.services {
+  text-align: center;
+  padding: 50px;
+}
+
+.service-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.service {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
