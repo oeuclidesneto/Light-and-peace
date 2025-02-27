@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Public pages (no authentication needed)
-  root 'pages#about'
+  root 'pages#home'
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
   get 'schedule', to: 'pages#schedule'
