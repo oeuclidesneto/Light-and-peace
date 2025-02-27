@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Service.create([
+  { name: "Meditation Sessions", description: "Join guided meditation sessions to improve your mindfulness." },
+  { name: "Healing Circles", description: "Connect with a supportive community for emotional and spiritual healing." },
+  { name: "Spiritual Counseling", description: "One-on-one sessions with experienced spiritual mentors." }
+])

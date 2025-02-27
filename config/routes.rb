@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'services/index'
   # Public pages (no authentication needed)
   root 'pages#home'
   get 'about', to: 'pages#about'
