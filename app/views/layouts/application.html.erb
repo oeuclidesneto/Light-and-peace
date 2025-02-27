@@ -16,7 +16,10 @@
         <%= link_to 'Login', new_user_session_path %>
       <% end %>
     </nav>
+  <head>
+    <%= stylesheet_link_tag "application", media: "all" %>
 
+  </head>
     <!-- Main Content -->
     <%= yield %> <!-- This renders the main content -->
 
