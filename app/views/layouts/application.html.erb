@@ -1,34 +1,40 @@
-<body>
-  <!-- Navigation Section -->
-  <nav class="navbar">
-    <ul>
-      <li><%= link_to 'Home', root_path, class: (current_page?(root_path) ? "active" : "") %></li>
-      <li><%= link_to 'About', about_path, class: (current_page?(about_path) ? "active" : "") %></li>
-      <li><%= link_to 'Contact', contact_path, class: (current_page?(contact_path) ? "active" : "") %></li>
-      <li><%= link_to 'Schedule', schedule_path, class: (current_page?(schedule_path) ? "active" : "") %></li>
-      <li><%= link_to 'Services', services_path, class: (current_page?(services_path) ? "active" : "") %></li>
-    </ul>
-  </nav>
-</body>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-  <!-- User Authentication Links -->
-  <% if user_signed_in? %>
-    <div class="user-links">
-      <%= link_to 'Profile', edit_user_registration_path %> |
-      <% if current_user.admin? %>
-        <%= link_to 'Admin Dashboard', admin_dashboard_path %> |
-      <% end %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    </div>
-  <% else %>
-    <div class="user-links">
-      <%= link_to 'Login', new_user_session_path %>
-    </div>
-  <% end %>
+<html>
+<head>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+  <body>
+    <!-- Navigation Section -->
+    <nav class="navbar">
+      <ul>
+        <li><%= link_to 'Home', root_path, class: (current_page?(root_path) ? "active" : "") %></li>
+        <li><%= link_to 'About', about_path, class: (current_page?(about_path) ? "active" : "") %></li>
+        <li><%= link_to 'Contact', contact_path, class: (current_page?(contact_path) ? "active" : "") %></li>
+        <li><%= link_to 'Schedule', schedule_path, class: (current_page?(schedule_path) ? "active" : "") %></li>
+        <li><%= link_to 'Services', services_path, class: (current_page?(services_path) ? "active" : "") %></li>
+      </ul>
+    </nav>
 
-  <!-- Main Content -->
-  <%= yield %> <!-- This renders the main content -->
+    <!-- User Authentication Links -->
+    <% if user_signed_in? %>
+      <div class="user-links">
+        <%= link_to 'Profile', edit_user_registration_path %> |
+        <% if current_user.admin? %>
+          <%= link_to 'Admin Dashboard', admin_dashboard_path %> |
+        <% end %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </div>
+    <% else %>
+      <div class="user-links">
+        <%= link_to 'Login', new_user_session_path %>
+      </div>
+    <% end %>
 
-  <!-- Footer -->
-  <%= render "shared/footer" %>
+    <!-- Main Content -->
+    <%= yield %> <!-- This renders the main content -->
+
+    <!-- Footer -->
+    <%= render "shared/footer" %>
+
+
+  </body>
 </html>
