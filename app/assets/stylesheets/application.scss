@@ -15,9 +15,10 @@
 
 /* application.css */
 
+/* Hero Section */
 .hero {
   position: relative;
-  background: url('<%= asset_path('hero.jpg') %>') no-repeat center center/cover; /* No repeat and full cover */
+  background: url(image-url('hero.jpg')) no-repeat center center/cover; /* No repeat and full cover */
   height: 100vh; /* Ensure it covers the full height of the viewport */
   display: flex;
   align-items: center;
@@ -27,8 +28,7 @@
   padding: 20px;
 }
 
-
-
+/* Dark Overlay */
 .hero::before {
   content: "";
   position: absolute;
@@ -39,6 +39,7 @@
   background: rgba(0, 0, 0, 0.3); /* Dark overlay */
 }
 
+/* Hero Content */
 .hero-content {
   position: relative;
   z-index: 1;
@@ -51,8 +52,9 @@
   }
 }
 
+/* Button Styling */
 .btn {
-  background-color: #007bff;
+  background-color: #4f8c9b; /* Soft Blue */
   color: white;
   padding: 12px 24px;
   text-decoration: none;
@@ -64,14 +66,16 @@
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #f7e1a0; /* Light Gold for hover effect */
 }
 
+/* Services Section */
 .services {
   text-align: center;
   padding: 50px;
 }
 
+/* Service List Layout */
 .service-list {
   display: flex;
   justify-content: center;
@@ -80,6 +84,7 @@
   margin-top: 20px;
 }
 
+/* Service Box */
 .service {
   background: rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -88,13 +93,15 @@
   text-align: center;
 }
 
+/* Navbar Styling */
 .navbar {
-  background: #333;
+  background-color: #4f8c9b; /* Soft Blue for navbar */
   padding: 10px 20px;
   display: flex;
   justify-content: center;
 }
 
+/* Navbar List */
 .navbar ul {
   list-style: none;
   margin: 0;
@@ -103,24 +110,45 @@
   gap: 15px;
 }
 
-.navbar li {
-  display: inline;
-}
-
+/* Navbar Links */
 .navbar a {
-  color: white;
+  color: #ffffff; /* White text in navbar */
   text-decoration: none;
   padding: 10px 15px;
-  transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .navbar a:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background-color: #f7e1a0; /* Light Gold for hover effect */
   border-radius: 5px;
 }
 
-/* ✅ Active Page Styling */
+/* Active Page Styling */
 .navbar .active {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.4); /* Slight background for active link */
   border-radius: 5px;
+}
+
+/* Body */
+.body {
+  background-color: #fafafa; /* Soft Light Beige */
+  color: #333333; /* Dark text for readability */
+}
+
+/* Footer Styling */
+footer {
+  background-color: #3f2525; /* Light Gold footer */
+  color: #333333; /* Dark text */
+  padding: 20px;
+  text-align: center;
+}
+
+.about-page {
+  text-align: center;
+  padding: 50px;
+  background-color: #f7f7f7;
+  color: #333;
+  h1 {
+    color: #4f8c9b;
+  }
 }
