@@ -137,7 +137,7 @@
 
 /* Footer Styling */
 footer {
-  background-color: #3f2525; /* Light Gold footer */
+  background-color: #fafafa; /* Light Gold footer */
   color: #333333; /* Dark text */
   padding: 20px;
   text-align: center;
@@ -151,4 +151,71 @@ footer {
   h1 {
     color: #4f8c9b;
   }
+}
+
+/* Container for the schedule */
+.schedule-container {
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7; /* Light background */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+  margin-top: 40px;
+}
+
+/* Title Styling */
+.schedule-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Subtitle Styling */
+.schedule-subtitle {
+  font-size: 1.2rem;
+  color: #777;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* List of events */
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 10px;
+}
+
+/* Each individual event */
+.schedule-item {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+/* Time part of the event */
+.schedule-item .time {
+  font-weight: bold;
+  color: #4f8c9b; /* Soft blue color */
+}
+
+/* Event part of the schedule */
+.schedule-item .event {
+  color: #333;
+}
+
+/* For special notes like English Lecture */
+.schedule-item .special-note {
+  font-size: 0.9rem;
+  color: #f7e1a0; /* Light Gold color */
+  margin-top: 5px;
 }
