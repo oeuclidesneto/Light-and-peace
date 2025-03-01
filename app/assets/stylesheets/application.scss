@@ -219,3 +219,13 @@ footer {
   color: #f7e1a0; /* Light Gold color */
   margin-top: 5px;
 }
+
+.youtube-embed {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.youtube-embed iframe {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
