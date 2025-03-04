@@ -1,40 +1,97 @@
 <html>
 <head>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-  <body>
-    <!-- Navigation Section -->
-    <nav class="navbar">
-      <ul>
-        <li><%= link_to 'Home', root_path, class: (current_page?(root_path) ? "active" : "") %></li>
-        <li><%= link_to 'About', about_path, class: (current_page?(about_path) ? "active" : "") %></li>
-        <li><%= link_to 'Contact', contact_path, class: (current_page?(contact_path) ? "active" : "") %></li>
-        <li><%= link_to 'Schedule', schedule_path, class: (current_page?(schedule_path) ? "active" : "") %></li>
-        <li><%= link_to 'Services', services_path, class: (current_page?(services_path) ? "active" : "") %></li>
-      </ul>
-    </nav>
+<body class="bg-gray-100">
+  <!-- Navigation Section -->
+ <nav class="bg-gray-800 p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <!-- Logo (Left) -->
+    <a href="<%= root_path %>" class="text-white text-xl font-bold">Brand</a>
 
-    <!-- User Authentication Links -->
+    <!-- Centered Desktop Menu -->
+    <div class="hidden md:flex flex-1 justify-center">
+      <ul class="flex space-x-6">
+        <li>
+          <%= link_to 'Home', root_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(root_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
+        </li>
+        <li>
+          <%= link_to 'About', about_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(about_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
+        </li>
+        <li>
+          <%= link_to 'Contact', contact_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(contact_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
+        </li>
+        <li>
+          <%= link_to 'Schedule', schedule_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(schedule_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
+        </li>
+        <li>
+          <%= link_to 'Services', services_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(services_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Mobile Menu Button (Right) -->
+    <button class="text-white md:hidden" id="menu-button">☰</button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <ul class="hidden flex-col bg-gray-700 text-white p-4 md:hidden" id="mobile-menu">
+    <li>
+      <%= link_to 'Home', root_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(root_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %>
+    </li>
+    <li>
+      <%= link_to 'About', about_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(about_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %>
+    </li>
+    <li>
+      <%= link_to 'Contact', contact_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(contact_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %>
+    </li>
+    <li>
+      <%= link_to 'Schedule', schedule_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(schedule_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %>
+    </li>
+    <li>
+      <%= link_to 'Services', services_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(services_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %>
+    </li>
+  </ul>
+</nav>
+
+
+
+  <!-- User Authentication Links -->
+  <div class="container mx-auto mt-4 text-center">
     <% if user_signed_in? %>
-      <div class="user-links">
-        <%= link_to 'Profile', edit_user_registration_path %> |
+      <div class="text-gray-800">
+        <%= link_to 'Profile', edit_user_registration_path, class: "hover:text-gray-500" %> |
         <% if current_user.admin? %>
-          <%= link_to 'Admin Dashboard', admin_dashboard_path %> |
+          <%= link_to 'Admin Dashboard', admin_dashboard_path, class: "hover:text-gray-500" %> |
         <% end %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "hover:text-red-500" %>
       </div>
     <% else %>
-      <div class="user-links">
-        <%= link_to 'Login', new_user_session_path %>
+      <div class="text-gray-800">
+        <%= link_to 'Login', new_user_session_path, class: "hover:text-blue-500" %>
       </div>
     <% end %>
+  </div>
 
-    <!-- Main Content -->
+  <!-- Main Content -->
+  <div class="container mx-auto p-6">
     <%= yield %> <!-- This renders the main content -->
+  </div>
 
-    <!-- Footer -->
-    <%= render "shared/footer" %>
+  <!-- Footer -->
+  <%= render "shared/footer" %>
 
+<!-- Mobile Navbar Toggle Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-  </body>
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  });
+</script>
+</body>
 </html>
