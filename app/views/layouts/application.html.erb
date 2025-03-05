@@ -1,63 +1,51 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <title>LightAndPeace</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="<%= asset_path('favicon.ico') %>">
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-gray-100">
-  <!-- Navigation Section -->
- <nav class="bg-gray-800 p-4">
-  <div class="container mx-auto flex items-center justify-between">
-    <!-- Logo (Left) -->
-    <a href="<%= root_path %>" class="text-white text-xl font-bold">Brand</a>
 
-    <!-- Centered Desktop Menu -->
-    <div class="hidden md:flex flex-1 justify-center">
-      <ul class="flex space-x-6">
-        <li>
-          <%= link_to 'Home', root_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(root_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
-        </li>
-        <li>
-          <%= link_to 'About', about_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(about_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
-        </li>
-        <li>
-          <%= link_to 'Contact', contact_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(contact_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
-        </li>
-        <li>
-          <%= link_to 'Schedule', schedule_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(schedule_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
-        </li>
-        <li>
-          <%= link_to 'Services', services_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(services_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
-        </li>
-      </ul>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+  <!-- Navigation Section -->
+  <nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex items-center justify-between">
+      <!-- Logo (Left) -->
+      <a href="<%= root_path %>">
+        <img src="<%= asset_path('logo.png') %>" alt="Light and Peace Logo" class="h-12 w-auto">
+      </a>
+
+      <!-- Centered Desktop Menu -->
+      <div class="hidden md:flex flex-1 justify-center">
+        <ul class="flex space-x-6">
+          <li><%= link_to 'Home', root_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(root_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %></li>
+          <li><%= link_to 'About', about_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(about_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %></li>
+          <li><%= link_to 'Contact', contact_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(contact_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %></li>
+          <li><%= link_to 'Schedule', schedule_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(schedule_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %></li>
+          <li><%= link_to 'Services', services_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(services_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %></li>
+        </ul>
+      </div>
+
+      <!-- Mobile Menu Button (Right) -->
+      <button class="text-white md:hidden" id="menu-button">☰</button>
     </div>
 
-    <!-- Mobile Menu Button (Right) -->
-    <button class="text-white md:hidden" id="menu-button">☰</button>
-  </div>
-
-  <!-- Mobile Dropdown Menu -->
-  <ul class="hidden flex-col bg-gray-700 text-white p-4 md:hidden" id="mobile-menu">
-    <li>
-      <%= link_to 'Home', root_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(root_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %>
-    </li>
-    <li>
-      <%= link_to 'About', about_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(about_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %>
-    </li>
-    <li>
-      <%= link_to 'Contact', contact_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(contact_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %>
-    </li>
-    <li>
-      <%= link_to 'Schedule', schedule_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(schedule_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %>
-    </li>
-    <li>
-      <%= link_to 'Services', services_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(services_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %>
-    </li>
-  </ul>
-</nav>
-
-
+    <!-- Mobile Dropdown Menu -->
+    <ul class="hidden flex-col bg-gray-700 text-white p-4 md:hidden" id="mobile-menu">
+      <li><%= link_to 'Home', root_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(root_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %></li>
+      <li><%= link_to 'About', about_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(about_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %></li>
+      <li><%= link_to 'Contact', contact_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(contact_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %></li>
+      <li><%= link_to 'Schedule', schedule_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(schedule_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %></li>
+      <li><%= link_to 'Services', services_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(services_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %></li>
+    </ul>
+  </nav>
 
   <!-- User Authentication Links -->
   <div class="container mx-auto mt-4 text-center">
@@ -77,23 +65,23 @@
   </div>
 
   <!-- Main Content -->
-  <div class="container mx-auto p-6">
+  <div class="container mx-auto p-6 flex-grow">
     <%= yield %> <!-- This renders the main content -->
   </div>
 
   <!-- Footer -->
   <%= render "shared/footer" %>
 
-<!-- Mobile Navbar Toggle Script -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuButton = document.getElementById('menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+  <!-- Mobile Navbar Toggle Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuButton = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
 
-    menuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
