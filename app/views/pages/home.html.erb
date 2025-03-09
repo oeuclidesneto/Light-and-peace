@@ -22,31 +22,42 @@
   </div>
 <% end %>
 
-  <!-- Featured YouTube Videos -->
-  <div class="mt-10">
+ <!-- Featured YouTube Videos -->
+<div class="mt-10">
     <h2 class="text-3xl font-bold text-gray-800 text-center">Latest Videos</h2>
     <p class="text-gray-600 text-center mt-2">Watch our most recent lecture and study session.</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-      <!-- Last Lecture Video -->
-      <div class="text-center">
-        <h3 class="text-xl font-semibold text-gray-700">Latest Lecture</h3>
-        <iframe class="w-full h-60 rounded-lg shadow-md mt-3" src="https://www.youtube.com/embed/YOUR_LECTURE_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <!-- Last Study Chapter Video -->
-      <div class="text-center">
-        <h3 class="text-xl font-semibold text-gray-700">Latest Study Chapter</h3>
-        <iframe class="w-full h-60 rounded-lg shadow-md mt-3" src="https://www.youtube.com/embed/YOUR_STUDY_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-      </div>
+
+    <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-6">
+        <!-- Latest Lecture -->
+        <div class="w-full md:w-1/2 text-center">
+            <h3 class="text-xl font-semibold text-gray-700">Latest Lecture</h3>
+            <iframe class="w-full h-64 md:h-72"
+                src="https://www.youtube.com/embed/videoseries?list=PL3ndO6KXXvx8Sz52sxXIJ-IgcQt6HJAR4"
+                frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Latest Study Chapter -->
+        <div class="w-full md:w-1/2 text-center">
+            <h3 class="text-xl font-semibold text-gray-700">Latest Study Chapter</h3>
+            <iframe class="w-full h-64 md:h-72"
+                src="https://www.youtube.com/embed/videoseries?list=PL3ndO6KXXvx_30pGlJrwWy7f539KmazHL"
+                frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
     </div>
+
     <div class="text-center mt-6">
-      <a href="https://www.youtube.com/@LightandPeaceSpiritism" target="_blank" class="text-blue-600 hover:text-blue-700 font-semibold">Visit our YouTube Channel →</a>
+        <a href="https://www.youtube.com/@LightandPeaceSpiritism" target="_blank"
+            class="text-blue-600 hover:text-blue-700 font-semibold">Visit our YouTube Channel →</a>
     </div>
-  </div>
+</div>
+
 
   <!-- Weekly Schedule Preview -->
   <div class="mt-10 bg-gray-100 p-6 rounded-lg shadow-md">
     <h2 class="text-3xl font-bold text-gray-800 text-center">Weekly Schedule</h2>
-    <p class="text-gray-600 text-center mt-2">Join us every Monday at 6:30 PM for our weekly activities.</p>
+    <p class="text-gray-600 text-center mt-2">Join us every Monday from 6:30 PM for our weekly activities.</p>
     <ul class="mt-4 space-y-2 text-center">
       <li><strong>6:30 PM</strong> - Study: Joana de Angelis</li>
       <li><strong>7:15 PM</strong> - Children's and Youth Group</li>
@@ -58,38 +69,42 @@
     </div>
   </div>
 
-  <!-- Highlighted Services -->
-  <div class="mt-10">
-    <h2 class="text-3xl font-bold text-gray-800 text-center">Our Services</h2>
-    <p class="text-gray-600 text-center mt-2">Explore the spiritual and educational services we offer.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-      <!-- Service 1 -->
-      <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4">
-        <i class="fas fa-book-open text-4xl text-blue-600"></i>
-        <div>
-          <h3 class="text-xl font-semibold text-gray-800">Study Group</h3>
-          <p class="text-gray-600 text-sm">Deepen your understanding of Spiritism with weekly studies.</p>
-        </div>
-      </div>
+  <!-- Our Services (Centered Items) -->
+<div class="mt-10">
+  <h2 class="text-3xl font-bold text-gray-800 text-center">Our Services</h2>
+  <p class="text-gray-600 text-center mt-2">Explore the spiritual and educational services we offer.</p>
 
-      <!-- Service 2 -->
-      <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4">
-        <i class="fas fa-hands-praying text-4xl text-purple-600"></i>
-        <div>
-          <h3 class="text-xl font-semibold text-gray-800">Spiritual Pass</h3>
-          <p class="text-gray-600 text-sm">Experience spiritual balance and renewal through the laying on of hands.</p>
-        </div>
-      </div>
-
-      <!-- Service 3 -->
-      <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4">
-        <i class="fas fa-book-reader text-4xl text-indigo-600"></i>
-        <div>
-          <h3 class="text-xl font-semibold text-gray-800">Library</h3>
-          <p class="text-gray-600 text-sm">Explore our collection of Spiritist books and resources.</p>
-        </div>
+  <!-- Centered Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 justify-center text-center">
+    <!-- Service 1 - Study Group -->
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center space-y-4">
+      <i class="fas fa-book-open text-4xl text-blue-600"></i>
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800">Study Group</h3>
+        <p class="text-gray-600 text-sm">Deepen your understanding of Spiritism with weekly studies.</p>
       </div>
     </div>
+
+    <!-- Service 2 - Spiritual Pass -->
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center space-y-4">
+      <i class="fas fa-hands-praying text-4xl text-purple-600"></i>
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800">Spiritual Pass</h3>
+        <p class="text-gray-600 text-sm">Experience spiritual balance and renewal through the laying on of hands.</p>
+      </div>
+    </div>
+
+    <!-- Service 3 - Library -->
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center space-y-4">
+      <i class="fas fa-book-reader text-4xl text-indigo-600"></i>
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800">Library</h3>
+        <p class="text-gray-600 text-sm">Explore our collection of Spiritist books and resources.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
     <div class="text-center mt-6">
       <a href="<%= services_path %>" class="text-blue-600 hover:text-blue-700 font-semibold">See All Services →</a>
     </div>
