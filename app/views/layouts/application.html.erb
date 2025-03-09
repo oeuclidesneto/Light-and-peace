@@ -65,9 +65,11 @@
   </div>
 
   <!-- Main Content -->
-  <div class="container mx-auto p-6 flex-grow">
+<!-- Main Content -->
+  <main class="container mx-auto p-6 flex-1">
     <%= yield %> <!-- This renders the main content -->
-  </div>
+  </main>
+
 
   <!-- Footer -->
   <%= render "shared/footer" %>
@@ -89,5 +91,4 @@
     <p><%= flash[:notice] %></p>
   </div>
 <% end %>
-
 </html>

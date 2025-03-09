@@ -1,16 +1,21 @@
-<footer class="bg-gray-800 text-white text-center p-6 mt-10">
-  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+<footer class="bg-gray-900 text-gray-300 py-4">
+  <div class="container mx-auto flex flex-col md:flex-row justify-center items-center space-y-3 md:space-y-0 md:space-x-10 text-sm">
 
     <!-- Contact Section -->
     <div class="flex flex-col items-center">
-      <h2 class="text-lg font-semibold">Contact Us</h2>
+      <h2 class="text-lg font-semibold text-white">Contact Us</h2>
       <p><i class="fas fa-envelope text-blue-400"></i> spiritismlightandpeace@gmail.com</p>
       <p><i class="fas fa-map-marker-alt text-red-400"></i> 38 Palmerston Rd, Unley SA 5061</p>
     </div>
 
-    <!-- Social Media Links (Icons & Links) -->
+    <!-- Centered Copyright -->
+    <div class="text-center border-l border-r border-gray-600 px-6">
+      <p>&copy; 2025 Light and Peace. All rights reserved.</p>
+    </div>
+
+    <!-- Social Media Links -->
     <div class="flex flex-col items-center">
-      <h2 class="text-lg font-semibold">Follow Us</h2>
+      <h2 class="text-lg font-semibold text-white">Follow Us</h2>
       <div class="flex space-x-4 mt-2">
         <a href="https://www.youtube.com/@LightandPeaceSpiritism" target="_blank">
           <i class="fab fa-youtube text-red-500 text-xl hover:text-red-700"></i>
@@ -25,7 +30,4 @@
     </div>
 
   </div>
-
-  <!-- Copyright -->
-  <p class="text-xs mt-6">&copy; <%= Time.current.year %> Light and Peace. All rights reserved.</p>
 </footer>
