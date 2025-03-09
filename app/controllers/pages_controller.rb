@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
-  def about
+
+
+  def home
+    @next_speech = Speech.where("date >= ?", Time.now).order(:date).first
+  end
+    def about
   end
 
   def contact
