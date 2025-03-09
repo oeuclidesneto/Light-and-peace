@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
-  get "/services", to: "services#index", as: "services"
-  # Public pages (no authentication needed)
-  root 'pages#home'
-  get 'about', to: 'pages#about'
-  get 'contact', to: 'pages#contact'
-  get 'schedule', to: 'pages#schedule'
+  # Static Pages
+  root "pages#home"
+  get "/about", to: "pages#about"
+  get "/contact", to: "contacts#new"  # Contact Form Page
+  post "/contact", to: "contacts#create"  # Contact Form Submission
+  get "/schedule", to: "pages#schedule"
+  get "/services", to: "services#index"
+  get "/thank-you", to: "contacts#thank_you"
 
-  # Devise routes for login, sign up, etc.
+  # Devise Authentication Routes
   devise_for :users
 
-  # Admin routes (requires authentication and admin privileges)
-  # Direct route for /dashboard, handled by Admin::AdminController
-  get 'dashboard', to: 'admin/admin#dashboard', as: :admin_dashboard
-
-  # Admin namespace for other admin routes
+  # Admin Routes
   namespace :admin do
+    get "/dashboard", to: "admin#dashboard"
     resources :posts
   end
 end
