@@ -8,19 +8,19 @@
   </div>
 
 <% if @next_speech %>
-  <div class="max-w-4xl mx-auto p-6 bg-gradient-to-r from-blue-100 to-blue-300 text-gray-800 shadow-lg rounded-2xl mt-10 text-center">
-    <h2 class="text-3xl font-bold text-blue-700">Next Speech</h2>
-    <p class="text-lg mt-3"><strong>Theme:</strong> <%= @next_speech.theme %></p>
-    <p class="text-lg"><strong>Speaker:</strong> <%= @next_speech.speaker %></p>
-    <p class="text-sm mt-2 text-gray-700">Join us and feel welcomed in a space of light and peace.</p>
-  </div>
+<div class="bg-gradient-to-r from-blue-200 to-blue-300 text-gray-800 text-center p-6 rounded-xl shadow-lg">
+    <h2 class="text-xl font-extrabold text-blue-900">Next Speech</h2>
+  <p class="text-lg font-semibold"><span class="font-bold text-gray-950">Theme:</span> <span class="text-gray-950"><%= @next_speech.theme %></span></p>
+  <p class="text-lg font-semibold"><span class="font-bold text-gray-950">Speaker:</span> <span class="text-gray-950"><%= @next_speech.speaker %></span></p>
+  <p class="mt-2 text-gray-700">Join us and feel welcomed in a space of light and peace.</p>
+</div>
+
 <% else %>
   <div class="max-w-4xl mx-auto p-6 bg-gray-100 shadow-lg rounded-2xl mt-10 text-center">
     <h2 class="text-3xl font-bold text-blue-700">Next Speech</h2>
     <p class="text-gray-600">No upcoming speeches scheduled yet. Stay tuned!</p>
   </div>
 <% end %>
-
 
   <!-- Featured YouTube Videos -->
   <div class="mt-10">
