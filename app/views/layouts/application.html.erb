@@ -15,7 +15,7 @@
 
 <body class="bg-gray-100 flex flex-col min-h-screen">
   <!-- Navigation Section -->
-  <nav class="bg-gray-800 p-4">
+<nav class="bg-blue-200 p-4 shadow-md">
     <div class="container mx-auto flex items-center justify-between">
       <!-- Logo (Left) -->
       <a href="<%= root_path %>">
@@ -25,27 +25,29 @@
       <!-- Centered Desktop Menu -->
       <div class="hidden md:flex flex-1 justify-center">
         <ul class="flex space-x-6">
-          <li><%= link_to 'Home', root_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(root_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %></li>
-          <li><%= link_to 'About', about_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(about_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %></li>
-          <li><%= link_to 'Contact', contact_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(contact_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %></li>
-          <li><%= link_to 'Schedule', schedule_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(schedule_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %></li>
-          <li><%= link_to 'Services', services_path, class: "px-3 py-2 rounded-md transition duration-300 #{current_page?(services_path) ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %></li>
+          <li><%= link_to 'Home', root_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(root_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
+          <li><%= link_to 'About', about_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(about_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
+          <li><%= link_to 'Services', services_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(services_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
+          <li><%= link_to 'Schedule', schedule_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(schedule_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
+          <li><%= link_to 'Contact', contact_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(contact_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
         </ul>
       </div>
 
       <!-- Mobile Menu Button (Right) -->
-      <button class="text-white md:hidden" id="menu-button">☰</button>
+      <button class="text-gray-700 md:hidden font-bold" id="menu-button">☰</button>
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <ul class="hidden flex-col bg-gray-700 text-white p-4 md:hidden" id="mobile-menu">
-      <li><%= link_to 'Home', root_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(root_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %></li>
-      <li><%= link_to 'About', about_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(about_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %></li>
-      <li><%= link_to 'Contact', contact_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(contact_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %></li>
-      <li><%= link_to 'Schedule', schedule_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(schedule_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %></li>
-      <li><%= link_to 'Services', services_path, class: "block px-3 py-2 rounded-md transition duration-300 #{current_page?(services_path) ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'}" %></li>
-    </ul>
-  </nav>
+<ul class="hidden flex-col bg-blue-300 text-gray-800 p-4 md:hidden items-center" id="mobile-menu">
+      <li><%= link_to 'Home', root_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(root_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+      <li><%= link_to 'About', about_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(about_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+      <li><%= link_to 'Services', services_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(services_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+      <li><%= link_to 'Schedule', schedule_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(schedule_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+      <li><%= link_to 'Contact', contact_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(contact_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+</ul>
+</nav>
+
+
 
   <!-- User Authentication Links -->
   <div class="container mx-auto mt-4 text-center">
