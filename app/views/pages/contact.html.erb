@@ -2,42 +2,31 @@
   <h1 class="text-3xl font-bold text-gray-800 text-center">Contact Us</h1>
   <p class="text-gray-600 text-center mt-2">We'd love to hear from you. Fill out the form below to get in touch.</p>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-    <!-- Contact Form -->
-    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-      <%= form_with url: contact_path, method: :post, local: true, class: "space-y-4" do |f| %>
-        <div>
-          <label class="block text-gray-700 font-medium">Your Name</label>
-          <%= f.text_field :name, class: "w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
-        </div>
-
-        <div>
-          <label class="block text-gray-700 font-medium">Your Email</label>
-          <%= f.email_field :email, class: "w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
-        </div>
-
-        <div>
-          <label class="block text-gray-700 font-medium">Message</label>
-          <%= f.text_area :message, rows: 5, class: "w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
-        </div>
-
-        <div class="text-center">
-          <%= f.submit "Send Message", class: "bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300" %>
-        </div>
-      <% end %>
+  <!-- Flash Message for Errors -->
+  <% if flash[:alert] %>
+    <div class="bg-red-500 text-white text-center py-3 rounded-lg mb-6">
+      <p><%= flash[:alert] %></p>
     </div>
+  <% end %>
 
-    <!-- Google Maps Embed -->
+  <%= form_with url: contact_path, method: :post, local: true, class: "space-y-4" do |f| %>
     <div>
-      <h2 class="text-lg font-semibold text-gray-800 text-center">Find Us</h2>
-      <iframe
-        class="rounded-lg shadow-md w-full h-64 mt-4"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509002!2d138.6035399!3d-34.9450103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab0cfa45e65a3f7%3A0xd0cee0d1b58591f6!2sLight%20and%20Peace%20Spiritist%20Centre!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <label class="block text-gray-700 font-medium">Your Name</label>
+      <%= f.text_field :name, class: "w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500", value: params[:name] %>
     </div>
-  </div>
-</div>
 
+    <div>
+      <label class="block text-gray-700 font-medium">Your Email</label>
+      <%= f.email_field :email, class: "w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500", value: params[:email] %>
+    </div>
+
+    <div>
+      <label class="block text-gray-700 font-medium">Message</label>
+      <%= f.text_area :message, rows: 5, class: "w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500", value: params[:message] %>
+    </div>
+
+    <div class="text-center">
+      <%= f.submit "Send Message", class: "bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300" %>
+    </div>
+  <% end %>
+</div>

@@ -160,3 +160,15 @@ $primary-color: #4f8c9b; // Custom primary color
 .navbar {
   background-color: $primary-color;
 }
+
+
+/* application.scss */
+
+/* Transition on scaling */
+.touch-enlarge {
+  transition: transform 0.3s ease-in-out;
+}
+
+.scale-110 {
+  transform: scale(1.1);
+}
