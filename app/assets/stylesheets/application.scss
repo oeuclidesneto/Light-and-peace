@@ -1,144 +1,145 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- *
- *= require_tree .
- *= require_self
- */
-
-/* application.css */
-
 /* Hero Section */
 .hero {
   position: relative;
-  background: url(image-url('hero.jpg')) no-repeat center center/cover; /* No repeat and full cover */
-  height: 100vh; /* Ensure it covers the full height of the viewport */
+  background: url(image-url('hero.jpg')) no-repeat center center/cover;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
   padding: 20px;
-}
 
-/* Dark Overlay */
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3); /* Dark overlay */
-}
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent dark overlay */
+  }
 
-/* Hero Content */
-.hero-content {
-  position: relative;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.3); /* Slight background behind text */
-  padding: 30px;
-  border-radius: 10px;
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5); /* Slightly darker transparency for content */
+    backdrop-filter: blur(8px); /* Optional: Apply blur to the background */
+    padding: 30px;
+    border-radius: 10px;
 
-  h1, p {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    h1, p {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
   }
 }
 
-/* Button Styling */
-.btn {
-  background-color: #4f8c9b; /* Soft Blue */
-  color: white;
-  padding: 12px 24px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 18px;
+/* Section with Transparent Container */
+.section-with-bg {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;  /* Allow content to overflow */
+  height: 400px;      /* Set an initial height for the container */
+  background-size: cover;  /* Ensures the background image covers the section */
+  background-repeat: no-repeat;  /* Prevent the background image from repeating */
+  background-position: center;  /* Center the background image */
+  transition: height 0.5s ease-in-out; /* Transition for height */
+
+  @media (max-width: 768px) {
+    height: 300px;  /* Smaller height for mobile screens */
+  }
 }
 
-.btn:hover {
-  background-color: #f7e1a0; /* Light Gold for hover effect */
+.section-with-bg .section-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5); /* Slightly darker transparency for content */
+  backdrop-filter: blur(8px); /* Optional: Apply blur to the background */
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 90%;  /* Adjust to ensure content doesn't stretch too much */
 }
+
+.section-with-bg img {
+  width: 100%;
+  height: auto;  /* Make sure the image maintains its aspect ratio */
+  border-radius: 10px; /* Round the corners of the images */
+  object-fit: cover; /* Ensures the image remains correctly positioned within the container */
+}
+
+.section-with-bg:hover {
+  height: 600px; /* Increase the height when hovered */
+}
+
+
 
 /* Services Section */
 .services {
   text-align: center;
   padding: 50px;
-}
 
-/* Service List Layout */
-.service-list {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
+  .service-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
 
-/* Service Box */
-.service {
-  background: rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: center;
+    .service {
+      background: rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+  }
 }
 
 /* Navbar Styling */
 .navbar {
-  background-color: #4f8c9b; /* Soft Blue for navbar */
+  background-color: #4f8c9b;
   padding: 10px 20px;
   display: flex;
   justify-content: center;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 15px;
+      transition: background-color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #f7e1a0;
+        border-radius: 5px;
+      }
+
+      &.active {
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 5px;
+      }
+    }
+  }
 }
 
-/* Navbar List */
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 15px;
+/* Global Styling */
+body {
+  background-color: #fafafa;
+  color: #333333;
 }
 
-/* Navbar Links */
-.navbar a {
-  color: #ffffff; /* White text in navbar */
-  text-decoration: none;
-  padding: 10px 15px;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.navbar a:hover {
-  background-color: #f7e1a0; /* Light Gold for hover effect */
-  border-radius: 5px;
-}
-
-/* Active Page Styling */
-.navbar .active {
-  background: rgba(255, 255, 255, 0.4); /* Slight background for active link */
-  border-radius: 5px;
-}
-
-/* Body */
-.body {
-  background-color: #fafafa; /* Soft Light Beige */
-  color: #333333; /* Dark text for readability */
-}
-
-/* Footer Styling */
 footer {
-  background-color: #fafafa; /* Light Gold footer */
-  color: #333333; /* Dark text */
+  background-color: #fafafa;
+  color: #333333;
   padding: 20px;
   text-align: center;
 }
@@ -148,117 +149,14 @@ footer {
   padding: 50px;
   background-color: #f7f7f7;
   color: #333;
+
   h1 {
     color: #4f8c9b;
   }
 }
 
-/* Container for the schedule */
-.schedule-container {
-  width: 80%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f7f7f7; /* Light background */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
-  margin-top: 40px;
-}
 
-/* Title Styling */
-.schedule-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-/* Subtitle Styling */
-.schedule-subtitle {
-  font-size: 1.2rem;
-  color: #777;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* List of events */
-.schedule-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 0 10px;
-}
-
-/* Each individual event */
-.schedule-item {
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1rem;
-}
-
-/* Time part of the event */
-.schedule-item .time {
-  font-weight: bold;
-  color: #4f8c9b; /* Soft blue color */
-}
-
-/* Event part of the schedule */
-.schedule-item .event {
-  color: #333;
-}
-
-/* For special notes like English Lecture */
-.schedule-item .special-note {
-  font-size: 0.9rem;
-  color: #f7e1a0; /* Light Gold color */
-  margin-top: 5px;
-}
-
-.youtube-embed {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.youtube-embed iframe {
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-/* Global Typography */
-h1 {
-  font-size: 2.5rem; /* Matches .schedule-title */
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-h2 {
-  font-size: 2rem; /* Standard size for section titles */
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1.2rem; /* Matches .schedule-subtitle */
-  color: #777;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.section-container {
-  width: 80%;
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #f7f7f7;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+$primary-color: #4f8c9b; // Custom primary color
+.navbar {
+  background-color: $primary-color;
 }
