@@ -6,6 +6,6 @@ class ContactMailer < ApplicationMailer
     @message = message
     @email = email
 
-    mail(subject: "New Contact Form Message")
+    mail(subject: "Solicitação de Contato - Light & Peace")
   end
 end

@@ -19,6 +19,19 @@
 </head>
 
 <body class="bg-gray-100 flex flex-col min-h-screen">
+  <!-- Flash Messages -->
+  <% if flash[:alert] %>
+    <div class="bg-red-500 text-white text-center py-3 rounded-lg mb-6">
+      <p><%= flash[:alert] %></p>
+    </div>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div class="bg-green-500 text-white text-center py-3 rounded-lg mb-6">
+      <p><%= flash[:notice] %></p>
+    </div>
+  <% end %>
+
   <!-- Navigation Section -->
   <nav class="bg-blue-200 p-4 shadow-md">
     <div class="container mx-auto flex items-center justify-between">
@@ -52,23 +65,6 @@
     </ul>
   </nav>
 
-  <!-- User Authentication Links -->
-  <div class="container mx-auto mt-4 text-center">
-    <% if user_signed_in? %>
-      <div class="text-gray-800">
-        <%= link_to 'Profile', edit_user_registration_path, class: "hover:text-gray-500" %> |
-        <% if current_user.admin? %>
-          <%= link_to 'Admin Dashboard', admin_dashboard_path, class: "hover:text-gray-500" %> |
-        <% end %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "hover:text-red-500" %>
-      </div>
-    <% else %>
-      <div class="text-gray-800">
-        <%= link_to 'Login', new_user_session_path, class: "hover:text-blue-500" %>
-      </div>
-    <% end %>
-  </div>
-
   <!-- Main Content -->
   <main class="container mx-auto p-6 flex-1">
     <%= yield %> <!-- This renders the main content -->
@@ -88,12 +84,22 @@
       });
     });
   </script>
+
+  <!-- Mobile Touch Event for Image Scaling -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const touchElements = document.querySelectorAll('.touch-enlarge');
+
+      touchElements.forEach(element => {
+        element.addEventListener('touchstart', () => {
+          element.classList.add('scale-110'); // Apply scaling on touch
+        });
+
+        element.addEventListener('touchend', () => {
+          element.classList.remove('scale-110'); // Remove scaling when touch ends
+        });
+      });
+    });
+  </script>
 </body>
-
-<% if flash[:notice] %>
-  <div class="bg-green-500 text-white text-center py-3">
-    <p><%= flash[:notice] %></p>
-  </div>
-<% end %>
-
 </html>
