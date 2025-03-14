@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     @next_speech = Speech.where("date >= ?", Time.now).order(:date).first
   end
     def about
-  end
+    end
 
   def contact
     if request.post?
