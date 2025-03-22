@@ -1,11 +1,31 @@
-<div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-2xl mt-10">
-  <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center"><%= @service.title %></h1>
+<div class="max-w-3xl mx-auto px-6 py-10 bg-white shadow-xl rounded-2xl mt-10">
 
-  <div class="prose prose-blue prose-lg max-w-none text-gray-700 leading-relaxed">
-    <%= simple_format(@service.description) %>
+  <!-- Icon -->
+  <% icon = case @service.title.downcase
+    when "study group" then "fas fa-book-open text-blue-600"
+    when "lecture" then "fas fa-microphone text-green-600"
+    when "energy healing" then "fas fa-hands-praying text-purple-600"
+    when "fraternal assistance" then "fas fa-hands-helping text-red-600"
+    when "children’s and youth group" then "fas fa-users text-yellow-600"
+    when "library" then "fas fa-book-reader text-indigo-600"
+    when "gospel at home - spiritual support" then "fas fa-house text-teal-600"
+    else "fas fa-circle text-gray-600"
+  end %>
+
+  <div class="flex justify-center mb-4">
+    <i class="<%= icon %> text-5xl"></i>
   </div>
 
+  <!-- Title -->
+  <h1 class="text-3xl font-bold text-gray-800 text-center mb-4"><%= @service.title %></h1>
+
+  <!-- Description -->
+  <div class="text-center text-gray-700 text-lg leading-relaxed">
+    <p><%= @service.description %></p>
+  </div>
+
+  <!-- Back to Services Button -->
   <div class="text-center mt-8">
-    <%= link_to "← Back to Services", services_path, class: "inline-block px-4 py-2 bg-blue-100 text-blue-800 font-semibold rounded-lg hover:bg-blue-200 transition" %>
+    <%= link_to "← Back to Services", services_path, class: "text-blue-600 hover:text-blue-800 font-semibold underline" %>
   </div>
 </div>
