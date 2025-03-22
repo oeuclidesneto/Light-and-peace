@@ -4,63 +4,103 @@
 
   <!-- Services Grid -->
   <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+
     <!-- Study Group -->
-    <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4">
-      <i class="fas fa-book-open text-4xl text-blue-600"></i>
-      <div>
-        <h2 class="text-xl font-semibold text-gray-800">Study Group - Joanna de Ângelis</h2>
-        <p class="text-gray-600">Engage in discussions on the works of Joanna de Ângelis for self-discovery and transformation.</p>
-      </div>
-    </div>
+    <% if (service = Service.find_by(title: "Study Group")) %>
+      <%= link_to service_path(service), class: "block" do %>
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4 transition duration-300 hover:bg-gray-200 cursor-pointer">
+          <i class="fas fa-book-open text-4xl text-blue-600"></i>
+          <div>
+            <h2 class="text-xl font-semibold text-gray-800">Study Group</h2>
+            <p class="text-gray-600"><%= service.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
 
-    <!-- Lecture -->
-    <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4">
-      <i class="fas fa-microphone text-4xl text-green-600"></i>
-      <div>
-        <h2 class="text-xl font-semibold text-gray-800">Lecture</h2>
-        <p class="text-gray-600">Attend lectures that explore Spiritist philosophy and its applications in daily life.</p>
-      </div>
-    </div>
-
-    <!-- Spiritual Pass -->
-    <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4">
-      <i class="fas fa-hands-praying text-4xl text-purple-600"></i>
-      <div>
-        <h2 class="text-xl font-semibold text-gray-800">Spiritual Pass</h2>
-        <p class="text-gray-600">Experience spiritual renewal and balance through the laying on of hands.</p>
-      </div>
-    </div>
-
-    <!-- Fraternal Assistance -->
-    <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4">
-      <i class="fas fa-hands-helping text-4xl text-red-600"></i>
-      <div>
-        <h2 class="text-xl font-semibold text-gray-800">Fraternal Assistance</h2>
-        <p class="text-gray-600">Receive emotional and spiritual support through private conversations.</p>
-      </div>
-    </div>
+    <!-- Spiritual Peace → Displayed as Energy Healing -->
+    <% if (service = Service.find_by(title: "Energy Healing")) %>
+      <%= link_to service_path(service), class: "block" do %>
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4 transition duration-300 hover:bg-gray-200 cursor-pointer">
+          <i class="fas fa-hands-praying text-4xl text-purple-600"></i>
+          <div>
+            <h2 class="text-xl font-semibold text-gray-800">Energy Healing</h2>
+            <p class="text-gray-600"><%= service.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
 
     <!-- Children’s and Youth Group -->
-    <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4">
-      <i class="fas fa-users text-4xl text-yellow-600"></i>
-      <div>
-        <h2 class="text-xl font-semibold text-gray-800">Children’s and Youth Group</h2>
-        <p class="text-gray-600">A space for young people to learn Spiritist values through engaging activities.</p>
-      </div>
-    </div>
+    <% if (service = Service.find_by(title: "Children’s and Youth Group")) %>
+      <%= link_to service_path(service), class: "block" do %>
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4 transition duration-300 hover:bg-gray-200 cursor-pointer">
+          <i class="fas fa-users text-4xl text-yellow-600"></i>
+          <div>
+            <h2 class="text-xl font-semibold text-gray-800">Children’s and Youth Group</h2>
+            <p class="text-gray-600"><%= service.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <!-- Lecture -->
+    <% if (service = Service.find_by(title: "Lecture")) %>
+      <%= link_to service_path(service), class: "block" do %>
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4 transition duration-300 hover:bg-gray-200 cursor-pointer">
+          <i class="fas fa-microphone text-4xl text-green-600"></i>
+          <div>
+            <h2 class="text-xl font-semibold text-gray-800">Lecture</h2>
+            <p class="text-gray-600"><%= service.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
 
     <!-- Library -->
-    <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4">
-      <i class="fas fa-book-reader text-4xl text-indigo-600"></i>
+    <% if (service = Service.find_by(title: "Library")) %>
+      <%= link_to service_path(service), class: "block" do %>
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4 transition duration-300 hover:bg-gray-200 cursor-pointer">
+          <i class="fas fa-book-reader text-4xl text-indigo-600"></i>
+          <div>
+            <h2 class="text-xl font-semibold text-gray-800">Library</h2>
+            <p class="text-gray-600"><%= service.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <!-- Fraternal Assistance -->
+    <% if (service = Service.find_by(title: "Fraternal Assistance")) %>
+      <%= link_to service_path(service), class: "block" do %>
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4 transition duration-300 hover:bg-gray-200 cursor-pointer">
+          <i class="fas fa-hands-helping text-4xl text-red-600"></i>
+          <div>
+            <h2 class="text-xl font-semibold text-gray-800">Fraternal Assistance</h2>
+            <p class="text-gray-600"><%= service.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <!-- Gospel at Home -->
+    <% if (service = Service.find_by(title: "Gospel at Home - Spiritual Support")) %>
+  <%= link_to service_path(service), class: "block" do %>
+    <div class="bg-gray-100 p-4 rounded-lg shadow-md flex items-center space-x-4 transition duration-300 hover:bg-gray-200 cursor-pointer">
+      <i class="fas fa-house text-4xl text-orange-600"></i>
       <div>
-        <h2 class="text-xl font-semibold text-gray-800">Library</h2>
-        <p class="text-gray-600">Explore our collection of Spiritist books and resources.</p>
+        <h2 class="text-xl font-semibold text-gray-800">Gospel at Home</h2>
+        <p class="text-gray-600"><%= service.description.truncate(120) %></p>
       </div>
     </div>
+  <% end %>
+<% end %>
+
+
   </div>
 
   <!-- Centered Back to Home Button -->
   <div class="text-center mt-6">
-    <a href="<%= root_path %>" class="text-blue-600 hover:text-blue-700 font-semibold">Back to Home</a>
+    <%= link_to "Back to Home", root_path, class: "text-blue-600 hover:text-blue-700 font-semibold" %>
   </div>
 </div>

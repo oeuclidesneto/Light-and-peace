@@ -1,0 +1,49 @@
+Arguments: 
+  /Users/euclidesneto/.nvm/versions/node/v16.15.1/bin/node /Users/euclidesneto/.nvm/versions/node/v16.15.1/bin/yarn add @hotwired/turbo-rails stimulus stimulus-loading
+
+PATH: 
+  /Users/euclidesneto/.nvm/versions/node/v16.15.1/bin:/Users/euclidesneto/.nvm/versions/node/v16.15.1/bin:./bin:./node_modules/.bin:/Users/euclidesneto/.nvm/versions/node/v16.15.1/bin:/Users/euclidesneto/.rbenv/shims:/Users/euclidesneto/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/euclidesneto/.pyenv/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/X11/bin:./bin:./node_modules/.bin:/Users/euclidesneto/.nvm/versions/node/v16.15.1/bin:/Users/euclidesneto/.rbenv/shims:/Users/euclidesneto/.rbenv/bin:/usr/local/sbin:/usr/local/sbin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.15.1
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/stimulus-loading: Not found
+      at Request.params.callback [as _callback] (/Users/euclidesneto/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at Request.self.callback (/Users/euclidesneto/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:527:28)
+      at Request.<anonymous> (/Users/euclidesneto/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:527:28)
+      at IncomingMessage.<anonymous> (/Users/euclidesneto/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:641:28)
+      at IncomingMessage.emit (node:events:539:35)
+      at endReadableNT (node:internal/streams/readable:1345:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "dependencies": {
+      "autoprefixer": "^10.4.21",
+      "postcss": "^8.5.3"
+    },
+    "devDependencies": {
+      "tailwindcss": "^4.0.12",
+      "@tailwindcss/postcss": "^1.0.0",
+      "postcss-cli": "^11.0.0"
+    },
+    "scripts": {
+      "build:css": "postcss ./app/assets/stylesheets/application.scss -o ./app/assets/builds/application.css"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

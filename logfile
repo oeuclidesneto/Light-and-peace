@@ -7,3 +7,35 @@
 2025-03-09 15:23:25.632 ACDT [86371] FATAL:  database "euclidesneto" does not exist
 2025-03-09 15:30:04.181 ACDT [88500] FATAL:  database "light_and_peace_development" does not exist
 2025-03-09 15:30:06.312 ACDT [88502] FATAL:  database "light_and_peace_development" does not exist
+2025-03-17 06:23:21.784 ACDT [15875] ERROR:  syntax error at or near "sqlite3" at character 1
+2025-03-17 06:23:21.784 ACDT [15875] STATEMENT:  sqlite3 db/development.sqlite3
+	
+	PRAGMA table_info(services);
+2025-03-22 09:38:03.698 ACDT [46302] ERROR:  column "title" does not exist
+2025-03-22 09:38:03.698 ACDT [46302] STATEMENT:  ALTER TABLE "services" RENAME COLUMN "title" TO "name"
+2025-03-22 11:12:58.482 ACDT [48710] ERROR:  column "tittle" does not exist at character 8
+2025-03-22 11:12:58.482 ACDT [48710] HINT:  Perhaps you meant to reference the column "services.title".
+2025-03-22 11:12:58.482 ACDT [48710] STATEMENT:  SELECT "tittle" FROM "services"
+2025-03-22 11:26:59.030 ACDT [49245] ERROR:  database "light_and_peace_development" is being accessed by other users
+2025-03-22 11:26:59.030 ACDT [49245] DETAIL:  There are 2 other sessions using the database.
+2025-03-22 11:26:59.030 ACDT [49245] STATEMENT:  DROP DATABASE IF EXISTS "light_and_peace_development"
+2025-03-22 11:31:40.788 ACDT [49104] FATAL:  terminating connection due to administrator command
+2025-03-22 11:31:40.788 ACDT [47909] FATAL:  terminating connection due to administrator command
+2025-03-22 12:12:16.030 ACDT [51621] ERROR:  duplicate key value violates unique constraint "index_services_on_slug"
+2025-03-22 12:12:16.030 ACDT [51621] DETAIL:  Key (slug)=(study-group) already exists.
+2025-03-22 12:12:16.030 ACDT [51621] STATEMENT:  UPDATE "services" SET "updated_at" = $1, "slug" = $2 WHERE "services"."id" = $3
+2025-03-22 12:18:37.559 ACDT [51858] ERROR:  duplicate key value violates unique constraint "index_services_on_slug"
+2025-03-22 12:18:37.559 ACDT [51858] DETAIL:  Key (slug)=(energy-healing) already exists.
+2025-03-22 12:18:37.559 ACDT [51858] STATEMENT:  UPDATE "services" SET "updated_at" = $1, "slug" = $2 WHERE "services"."id" = $3
+2025-03-22 12:21:05.128 ACDT [52014] ERROR:  duplicate key value violates unique constraint "index_services_on_slug"
+2025-03-22 12:21:05.128 ACDT [52014] DETAIL:  Key (slug)=(energy-healing) already exists.
+2025-03-22 12:21:05.128 ACDT [52014] STATEMENT:  UPDATE "services" SET "updated_at" = $1, "slug" = $2 WHERE "services"."id" = $3
+2025-03-22 12:29:06.167 ACDT [52438] ERROR:  duplicate key value violates unique constraint "index_services_on_slug"
+2025-03-22 12:29:06.167 ACDT [52438] DETAIL:  Key (slug)=(children-s-and-youth-group) already exists.
+2025-03-22 12:29:06.167 ACDT [52438] STATEMENT:  UPDATE "services" SET "updated_at" = $1, "slug" = $2 WHERE "services"."id" = $3
+2025-03-22 12:32:42.298 ACDT [52438] ERROR:  duplicate key value violates unique constraint "index_services_on_slug"
+2025-03-22 12:32:42.298 ACDT [52438] DETAIL:  Key (slug)=(lecture) already exists.
+2025-03-22 12:32:42.298 ACDT [52438] STATEMENT:  UPDATE "services" SET "updated_at" = $1, "slug" = $2 WHERE "services"."id" = $3
+2025-03-22 12:37:59.871 ACDT [52438] ERROR:  duplicate key value violates unique constraint "index_services_on_slug"
+2025-03-22 12:37:59.871 ACDT [52438] DETAIL:  Key (slug)=(gospel-at-home-spiritual-support) already exists.
+2025-03-22 12:37:59.871 ACDT [52438] STATEMENT:  UPDATE "services" SET "updated_at" = $1, "slug" = $2 WHERE "services"."id" = $3

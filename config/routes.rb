@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/services", to: "services#index"
   get "/thank-you", to: "contacts#thank_you"
 
+  resources :services, only: [:index, :show]
+
   # Devise Authentication Routes
   devise_for :users
 

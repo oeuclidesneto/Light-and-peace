@@ -1,0 +1,11 @@
+<div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-2xl mt-10">
+  <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center"><%= @service.title %></h1>
+
+  <div class="prose prose-blue prose-lg max-w-none text-gray-700 leading-relaxed">
+    <%= simple_format(@service.description) %>
+  </div>
+
+  <div class="text-center mt-8">
+    <%= link_to "← Back to Services", services_path, class: "inline-block px-4 py-2 bg-blue-100 text-blue-800 font-semibold rounded-lg hover:bg-blue-200 transition" %>
+  </div>
+</div>
