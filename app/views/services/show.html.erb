@@ -22,6 +22,14 @@
 <!-- Description -->
 <div class="text-center text-gray-700 text-lg leading-relaxed space-y-4">
   <%= simple_format(@service.full_description.presence || @service.description) %>
+  <% if @service.title == "Lecture" %>
+    <div class="mt-8">
+      <iframe class="w-full h-64 md:h-72 rounded-xl shadow-md"
+        src="https://www.youtube.com/embed/videoseries?list=PL3ndO6KXXvx8Sz52sxXIJ-IgcQt6HJAR4"
+        frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
+  <% end %>
 </div>
 
 
