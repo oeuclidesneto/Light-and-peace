@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'events/index'
   # Static Pages
   root "pages#home"
   get "/about", to: "pages#about"
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   get "/schedule", to: "pages#schedule"
   get "/services", to: "services#index"
   get "/thank-you", to: "contacts#thank_you"
+  get 'events', to: 'events#index'
 
   resources :services, only: [:index, :show]
 
