@@ -88,3 +88,4 @@ CentreEvent.create!([
 ])
 
 puts "✅ Events seeded successfully!"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

@@ -12,3 +12,5 @@ import "controllers";
 
 // Export Stimulus application
 export { application };
+import "@activeadmin/admin"
+
