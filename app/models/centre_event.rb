@@ -1,0 +1,2 @@
+class CentreEvent < ApplicationRecord
+end
