@@ -1,39 +1,107 @@
-<div class="max-w-4xl mx-auto p-6 rounded-2xl mt-10 sm:p-4 section-with-bg hover:shadow-xl touch-enlarge" style="background-image: url('<%= asset_path('header-serene-landscape.png') %>')">
-  <div class="section-content relative z-10 bg-black bg-opacity-50 backdrop-blur-lg rounded-xl p-6">
-    <!-- Header -->
-    <h1 class="text-3xl font-bold text-white text-center mt-4">About Light & Peace</h1>
-    <p class="text-white text-center mt-2 text-sm sm:text-base">
+<!-- About Page -->
+<div class="max-w-5xl mx-auto px-4 py-10 space-y-12">
+
+  <!-- Section: About Light & Peace -->
+  <section class="bg-white p-6 rounded-2xl shadow-md">
+    <h1 class="text-3xl font-bold text-blue-950 mb-4">About Light & Peace</h1>
+    <p class="text-gray-700">
       Our mission at Light & Peace is to guide individuals along their spiritual journey by providing resources, community, and a welcoming environment rooted in Spiritist principles.
     </p>
-  </div>
-</div>
+  </section>
 
-<div class="max-w-4xl mx-auto p-6 rounded-2xl mt-10 sm:p-4 section-with-bg hover:shadow-xl touch-enlarge" style="background-image: url('<%= asset_path('purpose-lecture-group.png') %>')">
-  <div class="section-content relative z-10 bg-black bg-opacity-50 backdrop-blur-lg rounded-xl p-6">
-    <!-- Our Purpose -->
-    <h2 class="text-2xl font-semibold text-white text-center mt-4">Our Purpose</h2>
-    <p class="text-white text-center mt-2 text-sm sm:text-base">
+  <!-- Section: Our Purpose -->
+  <section class="bg-white p-6 rounded-2xl shadow-md">
+    <h2 class="text-2xl font-bold text-blue-950 mb-4">Our Purpose</h2>
+    <p class="text-gray-700">
       Light & Peace was founded to help people connect with the spiritual aspects of life, enabling them to find balance, understanding, and inner harmony. We offer a space where individuals can explore Spiritist teachings and apply them to their daily lives.
     </p>
-  </div>
-</div>
+  </section>
 
-<div class="max-w-4xl mx-auto p-6 rounded-2xl mt-10 sm:p-4 section-with-bg hover:shadow-xl touch-enlarge" style="background-image: url('<%= asset_path('offerings-study-group.png') %>')">
-  <div class="section-content relative z-10 bg-black bg-opacity-50 backdrop-blur-lg rounded-xl p-6">
-    <!-- What We Offer -->
-    <h2 class="text-2xl font-semibold text-white text-center mt-4">What We Offer</h2>
-    <p class="text-white mt-4 text-sm sm:text-base">
+  <!-- Section: What We Offer -->
+  <section class="bg-white p-6 rounded-2xl shadow-md">
+    <h2 class="text-2xl font-bold text-blue-950 mb-4">What We Offer</h2>
+    <p class="text-gray-700">
       Weekly lectures on Spiritist philosophy, study groups for deeper exploration of Spiritist literature, a library with an extensive collection of Spiritist books and writings, and a youth group dedicated to introducing younger generations to spiritual principles.
     </p>
-  </div>
-</div>
+  </section>
 
-<div class="max-w-4xl mx-auto p-6 rounded-2xl mt-10 sm:p-4 section-with-bg hover:shadow-xl touch-enlarge" style="background-image: url('<%= asset_path('history-tree-growth.png') %>')">
-  <div class="section-content relative z-10 bg-black bg-opacity-50 backdrop-blur-lg rounded-xl p-6">
-    <!-- Our History -->
-    <h2 class="text-2xl font-semibold text-white text-center mt-4">Our History</h2>
-    <p class="text-white text-center mt-2 text-sm sm:text-base">
+  <!-- Section: Our History -->
+  <section class="bg-white p-6 rounded-2xl shadow-md">
+    <h2 class="text-2xl font-bold text-blue-950 mb-4">Our History</h2>
+    <p class="text-gray-700">
       Light & Peace began as a small circle of dedicated Spiritist practitioners. Over the years, it grew into a thriving community. Through lectures, study groups, and collective efforts, our center continues to expand its reach, welcoming new members and deepening its understanding of Spiritism’s teachings.
     </p>
-  </div>
+  </section>
+
+  <!-- Section: Affiliations -->
+  <section class="bg-white p-6 rounded-2xl shadow-md">
+    <h2 class="text-2xl font-bold text-blue-950 text-center mb-6">Affiliations</h2>
+    <p class="text-gray-700 text-center mb-8">
+      Light & Peace is affiliated with two important Spiritist federations that support the development and dissemination of the Spiritist Doctrine.
+    </p>
+
+    <div class="overflow-x-auto">
+      <div class="flex md:grid md:grid-cols-2 gap-6 min-w-[36rem] md:min-w-0">
+        <!-- FEB -->
+        <a href="https://www.febnet.org.br/" target="_blank"
+           class="flex-shrink-0 w-80 md:w-full text-center border border-blue-100 rounded-xl p-6 shadow-sm hover:shadow-md transition hover:border-blue-300 bg-blue-50/30">
+          <%= image_tag 'feb-logo.png', alt: 'FEB Logo', class: 'mx-auto h-16 mb-4' %>
+          <h3 class="text-lg font-semibold text-blue-900 mb-2">Federação Espírita Brasileira (FEB)</h3>
+          <p class="text-sm text-gray-600">
+            Based in Brazil, FEB is the main Spiritist organization, active since 1884 in spreading the teachings of Spiritism across the world.
+          </p>
+        </a>
+
+        <!-- ASF -->
+        <a href="https://www.australianspiritistfederation.org.au/" target="_blank"
+           class="flex-shrink-0 w-80 md:w-full text-center border border-blue-100 rounded-xl p-6 shadow-sm hover:shadow-md transition hover:border-blue-300 bg-blue-50/30">
+          <%= image_tag 'asf-logo.png', alt: 'ASF Logo', class: 'mx-auto h-16 mb-4' %>
+          <h3 class="text-lg font-semibold text-blue-900 mb-2">Australian Spiritist Federation (ASF)</h3>
+          <p class="text-sm text-gray-600">
+            ASF connects and supports Spiritist centers across Australia, promoting spiritual study and events aligned with Kardec’s teachings.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: What is Spiritism -->
+  <section class="bg-white p-6 rounded-2xl shadow-md">
+    <h2 class="text-2xl font-bold text-blue-950 mb-4">What is Spiritism?</h2>
+    <p class="text-gray-700">
+      Spiritism is a philosophical, scientific, and religious doctrine founded by Allan Kardec in the 19th century, based on the study and understanding of spiritual reality. The doctrine explains the origin, nature, and destiny of spirits and the laws that govern the spiritual world.
+    </p>
+    <p class="text-gray-700 mt-4">
+      Spiritism promotes inner transformation, the practice of moral principles such as charity and love, and the evolution of the soul through reflection and reincarnation.
+    </p>
+  </section>
+
+  <!-- Section: Origin and Evolution -->
+  <section class="bg-white p-6 rounded-2xl shadow-md">
+    <h2 class="text-2xl font-bold text-blue-950 mb-4">Origin and Evolution of the Spiritist Doctrine</h2>
+    <p class="text-gray-700">
+      The Spiritist Doctrine originated in 19th-century France through the work of Allan Kardec, a respected educator and scientist. In 1857, he published “The Book of Spirits”, launching the movement. His scientific and moral approach shaped the development of Spiritism, later expanded by complementary works and spreading globally—especially in Brazil.
+    </p>
+  </section>
+
+  <!-- Section: Foundations of Spiritism -->
+  <section class="bg-white p-6 rounded-2xl shadow-md">
+    <h2 class="text-2xl font-bold text-blue-950 mb-4">Foundations of the Spiritist Concept</h2>
+    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+      <li><strong>Existence of God</strong> – One universal creator sustains everything.</li>
+      <li><strong>Immortality of the Soul</strong> – The spirit evolves eternally through multiple lives.</li>
+      <li><strong>Reincarnation</strong> – Each life offers growth and learning for the soul.</li>
+      <li><strong>Law of Cause and Effect</strong> – All actions bring consequences for moral progress.</li>
+      <li><strong>Mediumship</strong> – Communication between physical and spiritual worlds fosters understanding.</li>
+    </ul>
+  </section>
+
+  <!-- Section: Worldwide Movement -->
+  <section class="bg-white p-6 rounded-2xl shadow-md">
+    <h2 class="text-2xl font-bold text-blue-950 mb-4">The Spiritist Movement Around the World</h2>
+    <p class="text-gray-700">
+      Spiritism began in France and spread worldwide. It thrives especially in Brazil, where influential mediums like Chico Xavier and Divaldo Franco expanded its reach. Today, it is practiced across Europe, North and South America, promoting peace, inner transformation, and spiritual growth through study, charity, and collective learning.
+    </p>
+  </section>
+
 </div>
