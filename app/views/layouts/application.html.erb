@@ -48,6 +48,7 @@
           <li><%= link_to 'Services', services_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(services_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
           <li><%= link_to 'Schedule', schedule_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(schedule_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
           <li><%= link_to 'Events', events_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(events_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
+          <li><%= link_to 'Transparency', quarterly_reports_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(quarterly_reports_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
           <li><%= link_to 'Contact', contact_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(contact_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
         </ul>
       </div>
@@ -63,6 +64,7 @@
       <li><%= link_to 'Services', services_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(services_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
       <li><%= link_to 'Schedule', schedule_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(schedule_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
       <li><%= link_to 'Events', events_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(events_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+      <li><%= link_to 'Transparency', quarterly_reports_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(quarterly_reports_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
       <li><%= link_to 'Contact', contact_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(contact_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
     </ul>
   </nav>
