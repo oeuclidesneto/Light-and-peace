@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'quarterly_reports/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'events/index'
@@ -11,8 +12,13 @@ Rails.application.routes.draw do
   get "/services", to: "services#index"
   get "/thank-you", to: "contacts#thank_you"
   get 'events', to: 'events#index'
+  get 'quarterly-reports', to: 'quarterly_reports#index', as: :quarterly_reports
+  get 'quarterly-reports/:slug', to: 'quarterly_reports#show', as: :quarterly_report
+
 
   resources :services, only: [:index, :show]
+
+
 
   # Devise Authentication Routes
   devise_for :users
