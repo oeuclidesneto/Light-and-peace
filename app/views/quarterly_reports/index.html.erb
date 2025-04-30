@@ -29,19 +29,35 @@
 
     <!-- Reports -->
     <% default_report = @reports.first %>
-<% @reports.each do |report| %>
-  <%= render partial: "report_entry", locals: { report: report, default_report: default_report } %>
-<% end %>
+    <% @reports.each do |report| %>
+      <%= render partial: "report_entry", locals: { report: report, default_report: default_report } %>
+    <% end %>
 
+    <!-- Yearly Totals -->
+    <% if @yearly_totals.present? %>
+      <div class="bg-gray-50 p-6 rounded-2xl shadow-xl space-y-4 border border-gray-200">
+        <h2 class="text-2xl font-bold text-blue-800">Yearly Totals</h2>
+        <% @yearly_totals.each do |year, totals| %>
+          <div class="p-4 border rounded-xl bg-white shadow">
+            <h3 class="text-xl font-semibold text-blue-700 mb-2"><%= year %></h3>
+            <ul class="space-y-1 text-gray-800">
+              <li><strong>Recyclables:</strong> $<%= number_with_precision(totals[:recyclables], precision: 2) %></li>
+              <li><strong>Canteen:</strong> $<%= number_with_precision(totals[:canteen], precision: 2) %></li>
+              <li><strong>Donations:</strong> $<%= number_with_precision(totals[:donations], precision: 2) %></li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
     <!-- Footer note -->
     <p class="text-gray-700">
       We are deeply grateful to all contributors and reaffirm our commitment to charity, transparency, and responsible use of resources.
     </p>
-
   </div>
 </div>
 
+<!-- Report JS -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const select = document.getElementById('quarter-select');
