@@ -8,6 +8,7 @@ class QuarterlyReport < ApplicationRecord
   validates :donations, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :pdf, presence: true
   validates :slug, uniqueness: true
+  validates :admin_notes, length: { maximum: 500 }, allow_blank: true
 
   before_validation :generate_slug
 

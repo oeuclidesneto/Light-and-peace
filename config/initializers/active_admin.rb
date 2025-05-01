@@ -4,6 +4,8 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
+  config.view_factory.header = proc { render "layouts/active_admin_custom_header" }
+
   config.site_title = "Light And Peace"
 
   # Set the link url for the title. For example, to take

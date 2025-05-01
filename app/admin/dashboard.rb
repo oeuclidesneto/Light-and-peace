@@ -10,6 +10,15 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
+    section "📊 Quarterly Report Summary", priority: 1 do
+      div do
+        year = Date.today.year
+        total = QuarterlyReport.where(year: year).sum(:donations)
+        span "Total Donations for #{year}: "
+        strong number_to_currency(total)
+      end
+    end
+
     # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do
