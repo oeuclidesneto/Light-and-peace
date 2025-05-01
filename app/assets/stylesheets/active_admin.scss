@@ -2,7 +2,6 @@
 @import "active_admin/base";
 
 // Custom Light & Peace Theme for ActiveAdmin
-
 body.active_admin {
   background-color: #f3f4f6; // Tailwind's gray-100
   color: #1e3a8a; // Tailwind's blue-900
@@ -11,7 +10,7 @@ body.active_admin {
   // Sidebar Panel
   #filters_sidebar_section,
   .sidebar_section {
-    background-color: #e0f2fe;
+    background-color: #e0f2fe; // Tailwind blue-100
     border: 1px solid #bae6fd;
     border-radius: 8px;
     padding: 1rem;
@@ -57,4 +56,29 @@ body.active_admin {
     background-color: #fca5a5; // red-300
     color: #991b1b;
   }
+
+  // Sidebar Filter Buttons (Final Version)
+  .sidebar_section .buttons input[type="submit"],
+  .sidebar_section .buttons input[type="button"] {
+    all: unset;
+    appearance: none;
+    display: inline-block;
+    background-color: #2563eb !important; // Tailwind blue-600
+    color: #ffffff !important;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar_section .buttons input[type="submit"]:hover,
+  .sidebar_section .buttons input[type="button"]:hover {
+    background-color: #1d4ed8 !important; // Tailwind blue-700
+  }
 }
+
+

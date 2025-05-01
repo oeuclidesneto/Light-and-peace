@@ -1,42 +1,46 @@
-# frozen_string_literal: true
 ActiveAdmin.register_page "Dashboard" do
-  menu priority: 1, label: proc { I18n.t("active_admin.dashboard") }
+  menu priority: 0, label: "🏠 Dashboard"
 
-  content title: proc { I18n.t("active_admin.dashboard") } do
-    div class: "blank_slate_container", id: "dashboard_default_message" do
-      span class: "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
+  content title: "Welcome to Light & Peace Admin" do
+    columns do
+      column do
+        panel "📊 Donations This Year" do
+          year = Date.today.year
+          total = QuarterlyReport.where(year: year).sum(:donations)
+          div do
+            span "Total Donations in #{year}: "
+            strong number_to_currency(total)
+          end
+        end
+      end
+
+      column do
+        panel "📝 Latest Quarterly Report" do
+          latest = QuarterlyReport.order(year: :desc, quarter: :desc).first
+          if latest
+            ul do
+              li "Quarter: #{latest.quarter}"
+              li "Year: #{latest.year}"
+              li "Donations: #{number_to_currency(latest.donations)}"
+              li link_to "View Report", admin_quarterly_report_path(latest)
+            end
+          else
+            span "No reports yet."
+          end
+        end
       end
     end
 
-    section "📊 Quarterly Report Summary", priority: 1 do
-      div do
-        year = Date.today.year
-        total = QuarterlyReport.where(year: year).sum(:donations)
-        span "Total Donations for #{year}: "
-        strong number_to_currency(total)
+    columns do
+      column do
+        panel "⚡ Quick Actions" do
+          ul do
+            li link_to "➕ New Quarterly Report", new_admin_quarterly_report_path
+            li link_to "📋 View All Reports", admin_quarterly_reports_path
+            li link_to "📅 View Centre Events", admin_centre_events_path
+          end
+        end
       end
     end
-
-    # Here is an example of a simple dashboard with columns and panels.
-    #
-    # columns do
-    #   column do
-    #     panel "Recent Posts" do
-    #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
-    #         end
-    #       end
-    #     end
-    #   end
-
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
-  end # content
+  end
 end
