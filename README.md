@@ -8,7 +8,7 @@ Welcome to the official repository of the Light and Peace Spiritist Centre websi
 
 📁 Repository
 
-GitHub Repository
+[GitHub Repository](https://github.com/oeuclidesneto/Light-and-peace/)
 
 📌 Features
 
