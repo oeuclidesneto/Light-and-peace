@@ -21,7 +21,8 @@
 
 <!-- Description -->
 <div class="text-center text-gray-700 text-lg leading-relaxed space-y-4">
-  <%= simple_format(@service.full_description.presence || @service.description) %>
+  <%= formatted_service_description(@service) %>
+
   <% if @service.title == "Lecture" %>
     <div class="mt-8">
       <iframe class="w-full h-64 md:h-72 rounded-xl shadow-md"
@@ -31,7 +32,6 @@
     </div>
   <% end %>
 </div>
-
 
   <!-- Back to Services Button -->
   <div class="text-center mt-8">
