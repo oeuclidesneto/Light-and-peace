@@ -8,9 +8,6 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <!-- Link to compiled application.css (SCSS output) -->
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -33,15 +30,15 @@
   <% end %>
 
   <!-- Navigation Section -->
-  <nav class="bg-blue-200 p-4 shadow-md">
-    <div class="container mx-auto flex items-center justify-between">
+  <nav class="bg-blue-200 bg-opacity-90 backdrop-blur-lg p-4 shadow-md">
+    <div class="container mx-auto flex flex-wrap items-center justify-between">
       <!-- Logo (Left) -->
-      <a href="<%= root_path %>">
+      <a href="<%= root_path %>" class="mb-2 md:mb-0">
         <img src="<%= asset_path('logo.png') %>" alt="Light and Peace Logo" class="h-12 w-auto">
       </a>
 
       <!-- Centered Desktop Menu -->
-      <div class="hidden md:flex flex-1 justify-center">
+      <div class="hidden md:flex flex-1 justify-center flex-wrap">
         <ul class="flex space-x-6">
           <li><%= link_to 'Home', root_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(root_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
           <li><%= link_to 'About', about_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(about_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
