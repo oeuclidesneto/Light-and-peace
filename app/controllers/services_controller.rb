@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+  helper ActionView::Helpers::TextHelper
   def index
     @services = Service.all  # Fetch all services
   end
