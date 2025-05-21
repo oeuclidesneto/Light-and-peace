@@ -1,40 +1,76 @@
-<div class="max-w-3xl mx-auto px-6 py-10 bg-white shadow-xl rounded-2xl mt-10">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+  <div class="bg-white shadow-xl rounded-2xl overflow-hidden">
+    <!-- Header with Icon -->
+    <div class="bg-gradient-to-r from-blue-50 to-white px-8 py-6 border-b border-gray-100">
+      <% icon = case @service.title.downcase
+        when "study group" then "fas fa-book-open text-blue-600"
+        when "lecture" then "fas fa-microphone text-green-600"
+        when "energy healing" then "fas fa-hands-praying text-purple-600"
+        when "fraternal assistance" then "fas fa-hands-helping text-red-600"
+        when "children's and youth group", "children’s and youth group" then "fas fa-users text-yellow-600"
+        when "library" then "fas fa-book-reader text-indigo-600"
+        when "gospel at home - spiritual support" then "fas fa-house text-teal-600"
+        else "fas fa-circle text-gray-600"
+      end %>
 
-  <!-- Icon -->
-  <% icon = case @service.title.downcase
-    when "study group" then "fas fa-book-open text-blue-600"
-    when "lecture" then "fas fa-microphone text-green-600"
-    when "energy healing" then "fas fa-hands-praying text-purple-600"
-    when "fraternal assistance" then "fas fa-hands-helping text-red-600"
-    when "children’s and youth group" then "fas fa-users text-yellow-600"
-    when "library" then "fas fa-book-reader text-indigo-600"
-    when "gospel at home - spiritual support" then "fas fa-house text-teal-600"
-    else "fas fa-circle text-gray-600"
-  end %>
-
-  <div class="flex justify-center mb-4">
-    <i class="<%= icon %> text-5xl"></i>
-  </div>
-
-  <!-- Title -->
-  <h1 class="text-3xl font-bold text-gray-800 text-center mb-4"><%= @service.title %></h1>
-
-<!-- Description -->
-<div class="text-center text-gray-700 text-lg leading-relaxed space-y-4">
-  <%= formatted_service_description(@service) %>
-
-  <% if @service.title == "Lecture" %>
-    <div class="mt-8">
-      <iframe class="w-full h-64 md:h-72 rounded-xl shadow-md"
-        src="https://www.youtube.com/embed/videoseries?list=PL3ndO6KXXvx8Sz52sxXIJ-IgcQt6HJAR4"
-        frameborder="0" allowfullscreen>
-      </iframe>
+      <div class="flex items-center space-x-4">
+        <i class="<%= icon %> text-4xl"></i>
+        <h1 class="text-3xl font-bold text-gray-800"><%= @service.title %></h1>
+      </div>
     </div>
-  <% end %>
-</div>
 
-  <!-- Back to Services Button -->
-  <div class="text-center mt-8">
-    <%= link_to "← Back to Services", services_path, class: "text-blue-600 hover:text-blue-800 font-semibold underline" %>
+    <!-- Content -->
+    <div class="p-8">
+      <!-- Description with enhanced formatting -->
+      <div class="prose max-w-none text-gray-700">
+        <%= formatted_service_description(@service) %>
+      </div>
+
+      <!-- Special Cases -->
+      <% if @service.title.downcase.include?("lecture") %>
+        <div class="mt-8 aspect-w-16 aspect-h-9">
+          <iframe class="w-full h-96 rounded-lg shadow-md"
+            src="https://www.youtube.com/embed/videoseries?list=PL3ndO6KXXvx8Sz52sxXIJ-IgcQt6HJAR4"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      <% end %>
+
+      <% if @service.title.downcase.include?("library") %>
+        <div class="mt-8 space-y-3">
+          <h3 class="text-xl font-semibold text-gray-800">Online Resources:</h3>
+          <ul class="space-y-2">
+            <li>
+              <%= link_to "Kardecpedia", "https://kardecpedia.com/",
+                  target: "_blank",
+                  class: "text-blue-600 hover:text-blue-800 hover:underline",
+                  rel: "noopener noreferrer" %>
+            </li>
+            <li>
+              <%= link_to "SSBaltimore E-books", "https://ssbaltimore.org/e-books",
+                  target: "_blank",
+                  class: "text-blue-600 hover:text-blue-800 hover:underline",
+                  rel: "noopener noreferrer" %>
+            </li>
+            <li>
+              <%= link_to "BV Espírita", "https://www.bvespirita.net/",
+                  target: "_blank",
+                  class: "text-blue-600 hover:text-blue-800 hover:underline",
+                  rel: "noopener noreferrer" %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Footer -->
+    <div class="px-8 py-6 bg-gray-50 border-t border-gray-100 text-center">
+      <%= link_to services_path, class: "inline-flex items-center text-blue-600 hover:text-blue-800 font-medium" do %>
+        <i class="fas fa-arrow-left mr-2"></i>
+        Back to Services
+      <% end %>
+    </div>
   </div>
 </div>

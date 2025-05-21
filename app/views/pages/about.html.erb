@@ -1,109 +1,207 @@
 <!-- About Page -->
 <div class="max-w-5xl mx-auto px-4 py-10 space-y-12">
 
-  <!-- Section: About Light & Peace -->
-  <section class="bg-white p-6 rounded-2xl shadow-md">
-    <h1 class="text-3xl font-bold text-blue-950 mb-4">About Light & Peace</h1>
-    <p class="text-gray-700">
-      Our mission at Light & Peace is to guide individuals along their spiritual journey by providing resources, community, and a welcoming environment rooted in Spiritist principles.
-    </p>
-  </section>
+<!-- Mission Section -->
+<section class="relative rounded-2xl shadow-xl overflow-hidden min-h-[450px] flex items-center bg-gray-50">
+  <!-- Background image without blue overlay -->
+  <div class="absolute inset-0">
+    <%= image_tag 'allankardec.png', alt: '',
+         class: 'w-full h-full object-cover',
+         style: 'object-position: 35% 50%' %>
+  </div>
 
-  <!-- Section: Our Purpose -->
-  <section class="bg-white p-6 rounded-2xl shadow-md">
-    <h2 class="text-2xl font-bold text-blue-950 mb-4">Our Purpose</h2>
-    <p class="text-gray-700">
-      Light & Peace was founded to help people connect with the spiritual aspects of life, enabling them to find balance, understanding, and inner harmony. We offer a space where individuals can explore Spiritist teachings and apply them to their daily lives.
-    </p>
-  </section>
+  <!-- Centered card with consistent typography -->
+  <div class="relative z-10 w-full px-4">
+    <div class="max-w-2xl mx-auto bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-md border border-gray-100 opacity-40">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Our Mission</h1>
+      <p class="text-xl md:text-2xl leading-relaxed text-gray-700">
+        Guiding individuals on their spiritual journey through Spiritist principles, resources, and a welcoming community.
+      </p>
+    </div>
+  </div>
+</section>
 
-  <!-- Section: What We Offer -->
-  <section class="bg-white p-6 rounded-2xl shadow-md">
-    <h2 class="text-2xl font-bold text-blue-950 mb-4">What We Offer</h2>
-    <p class="text-gray-700">
-      Weekly lectures on Spiritist philosophy, study groups for deeper exploration of Spiritist literature, a library with an extensive collection of Spiritist books and writings, and a youth group dedicated to introducing younger generations to spiritual principles.
-    </p>
-  </section>
-
-  <!-- Section: Our History -->
-  <section class="bg-white p-6 rounded-2xl shadow-md">
-    <h2 class="text-2xl font-bold text-blue-950 mb-4">Our History</h2>
-    <p class="text-gray-700">
-      Light & Peace began as a small circle of dedicated Spiritist practitioners. Over the years, it grew into a thriving community. Through lectures, study groups, and collective efforts, our center continues to expand its reach, welcoming new members and deepening its understanding of Spiritism’s teachings.
-    </p>
-  </section>
-
-  <!-- Section: Affiliations -->
-  <section class="bg-white p-6 rounded-2xl shadow-md">
-    <h2 class="text-2xl font-bold text-blue-950 text-center mb-6">Affiliations</h2>
-    <p class="text-gray-700 text-center mb-8">
-      Light & Peace is affiliated with two important Spiritist federations that support the development and dissemination of the Spiritist Doctrine.
-    </p>
-
-    <div class="overflow-x-auto">
-      <div class="flex md:grid md:grid-cols-2 gap-6 min-w-[36rem] md:min-w-0">
-        <!-- FEB -->
-        <a href="https://www.febnet.org.br/" target="_blank"
-           class="flex-shrink-0 w-80 md:w-full text-center border border-blue-100 rounded-xl p-6 shadow-sm hover:shadow-md transition hover:border-blue-300 bg-blue-50/30">
-          <%= image_tag 'feb-logo.png', alt: 'FEB Logo', class: 'mx-auto h-16 mb-4' %>
-          <h3 class="text-lg font-semibold text-blue-900 mb-2">Federação Espírita Brasileira (FEB)</h3>
-          <p class="text-sm text-gray-600">
-            Based in Brazil, FEB is the main Spiritist organization, active since 1884 in spreading the teachings of Spiritism across the world.
+  <!-- About Light & Peace - Combined Section -->
+  <section class="grid md:grid-cols-2 gap-8 items-stretch">
+    <div class="bg-white p-8 rounded-2xl shadow-md">
+      <h2 class="text-3xl font-bold text-blue-950 mb-6">About Light & Peace</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-xl font-semibold text-blue-900 mb-2">Our Purpose</h3>
+          <p class="text-gray-700">
+            We help people connect with spirituality to find balance, understanding, and inner harmony through Spiritist teachings applied to daily life.
           </p>
-        </a>
-
-        <!-- ASF -->
-        <a href="https://www.australianspiritistfederation.org.au/" target="_blank"
-           class="flex-shrink-0 w-80 md:w-full text-center border border-blue-100 rounded-xl p-6 shadow-sm hover:shadow-md transition hover:border-blue-300 bg-blue-50/30">
-          <%= image_tag 'asf-logo.png', alt: 'ASF Logo', class: 'mx-auto h-16 mb-4' %>
-          <h3 class="text-lg font-semibold text-blue-900 mb-2">Australian Spiritist Federation (ASF)</h3>
-          <p class="text-sm text-gray-600">
-            ASF connects and supports Spiritist centers across Australia, promoting spiritual study and events aligned with Kardec’s teachings.
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-blue-900 mb-2">What We Offer</h3>
+          <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li>Weekly lectures on Spiritist philosophy</li>
+            <li>Study groups for deeper exploration</li>
+            <li>Extensive Spiritist library</li>
+            <li>Youth spiritual development programs</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-blue-900 mb-2">Our History</h3>
+          <p class="text-gray-700">
+            From a small circle of practitioners to a thriving community, we've grown through collective efforts while deepening our understanding of Spiritism.
           </p>
-        </a>
+        </div>
+      </div>
+    </div>
+    <div class="h-full rounded-2xl overflow-hidden shadow-lg relative">
+      <%= image_tag 'about-image.png', alt: 'Light & Peace spiritual community', class: 'absolute inset-0 w-full h-full object-cover' %>
+    </div>
+  </section>
+
+</section>
+  <!-- Affiliations Section -->
+  <section class="bg-white p-8 rounded-2xl shadow-md">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-blue-950 mb-4">Our Affiliations</h2>
+      <p class="text-gray-700 max-w-2xl mx-auto">
+        Light & Peace is proudly affiliated with these Spiritist federations that support the development and dissemination of the Spiritist Doctrine.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- FEB -->
+      <a href="https://www.febnet.org.br/" target="_blank"
+         class="group flex flex-col items-center text-center border border-blue-100 rounded-xl p-8 shadow-sm hover:shadow-md transition hover:border-blue-300 bg-blue-50/30">
+        <%= image_tag 'feb-logo.png', alt: 'FEB Logo', class: 'mx-auto h-20 mb-6 group-hover:scale-105 transition-transform' %>
+        <h3 class="text-xl font-semibold text-blue-900 mb-3">Federação Espírita Brasileira (FEB)</h3>
+        <p class="text-gray-600">
+          Based in Brazil, FEB is the main Spiritist organization, active since 1884 in spreading the teachings of Spiritism across the world.
+        </p>
+      </a>
+
+      <!-- ASF -->
+      <a href="https://www.australianspiritistfederation.org.au/" target="_blank"
+         class="group flex flex-col items-center text-center border border-blue-100 rounded-xl p-8 shadow-sm hover:shadow-md transition hover:border-blue-300 bg-blue-50/30">
+        <%= image_tag 'asf-logo.png', alt: 'ASF Logo', class: 'mx-auto h-20 mb-6 group-hover:scale-105 transition-transform' %>
+        <h3 class="text-xl font-semibold text-blue-900 mb-3">Australian Spiritist Federation (ASF)</h3>
+        <p class="text-gray-600">
+          ASF connects and supports Spiritist centers across Australia, promoting spiritual study and events aligned with Kardec's teachings.
+        </p>
+      </a>
+    </div>
+  </section>
+
+  <!-- What is Spiritism Section -->
+  <section class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl shadow-md">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-3xl font-bold text-blue-950 mb-6">What is Spiritism?</h2>
+        <div class="space-y-4 text-gray-700">
+          <p>
+            Spiritism is a philosophical, scientific, and religious doctrine founded by Allan Kardec in the 19th century, based on the study and understanding of spiritual reality. The doctrine seeks to explain the origin, nature, and destiny of spirits, as well as the laws governing the spiritual world. According to Spiritism, human beings are composed of a physical body and a spirit, with the spirit being immortal and undergoing a continuous process of evolution through reincarnation.
+          </p>
+          <p>
+            Spiritism does not impose dogmas, but encourages reflection, experimentation, and the practice of the moral principles of Jesus' teachings, aiming for inner transformation, spiritual improvement, and the development of virtues such as love, charity, forgiveness, and fraternity.
+          </p>
+        </div>
+      </div>
+      <div class="h-full rounded-xl overflow-hidden shadow-lg">
+        <img src="https://images.unsplash.com/photo-1604881991720-f91add269bed?q=80&w=1974&auto=format&fit=crop"
+             alt="Open book with spiritual imagery"
+             class="w-full h-full object-cover">
       </div>
     </div>
   </section>
 
-  <!-- Section: What is Spiritism -->
-  <section class="bg-white p-6 rounded-2xl shadow-md">
-    <h2 class="text-2xl font-bold text-blue-950 mb-4">What is Spiritism?</h2>
-    <p class="text-gray-700">
-      Spiritism is a philosophical, scientific, and religious doctrine founded by Allan Kardec in the 19th century, based on the study and understanding of spiritual reality. The doctrine explains the origin, nature, and destiny of spirits and the laws that govern the spiritual world.
-    </p>
-    <p class="text-gray-700 mt-4">
-      Spiritism promotes inner transformation, the practice of moral principles such as charity and love, and the evolution of the soul through reflection and reincarnation.
-    </p>
+  <!-- Origin and Foundations Section -->
+  <section class="grid md:grid-cols-2 gap-8">
+    <!-- Origin Card -->
+    <div class="bg-white p-8 rounded-2xl shadow-md">
+      <h2 class="text-2xl font-bold text-blue-950 mb-6">Origin and Evolution</h2>
+      <div class="space-y-4 text-gray-700">
+        <p>
+          Spiritism began in the 19th century with Allan Kardec, the pen name of Hyppolyte Léon Denizard Rivail, a respected French educator with a strong background in science, philosophy, and literature. Known for his logical and methodical thinking, Kardec studied spiritual phenomena and organized the teachings he received from spirits into a structured doctrine.
+        </p>
+        <p>
+          In 1857, he published The Book of Spirits, marking the official start of Spiritism. His scientific approach and credibility helped the doctrine gain recognition. Kardec later expanded the teachings through works like The Mediums’ Book, The Gospel According to Spiritism, and Genesis. Over time, Spiritism spread across the world, influencing thought in science, philosophy, and religion.
+        </p>
+      </div>
+    </div>
+
+    <!-- Foundations Card -->
+    <div class="bg-white p-8 rounded-2xl shadow-md">
+      <h2 class="text-2xl font-bold text-blue-950 mb-6">Foundations of Spiritism</h2>
+      <ul class="space-y-4 text-gray-700">
+        <li class="flex items-start">
+          <div class="bg-blue-100 p-2 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-800" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div>
+            <strong class="text-blue-900">Existence of God</strong> – One universal creator sustains everything.
+          </div>
+        </li>
+        <li class="flex items-start">
+          <div class="bg-blue-100 p-2 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-800" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div>
+            <strong class="text-blue-900">Immortality of the Soul</strong> – The spirit evolves eternally through multiple lives.
+          </div>
+        </li>
+        <li class="flex items-start">
+          <div class="bg-blue-100 p-2 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-800" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div>
+            <strong class="text-blue-900">Reincarnation</strong> – Each life offers growth and learning for the soul.
+          </div>
+        </li>
+        <li class="flex items-start">
+          <div class="bg-blue-100 p-2 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-800" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div>
+            <strong class="text-blue-900">Law of Cause and Effect</strong> – All actions bring consequences for moral progress.
+          </div>
+        </li>
+        <li class="flex items-start">
+          <div class="bg-blue-100 p-2 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-800" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div>
+            <strong class="text-blue-900">Mediumship</strong> – Communication between physical and spiritual worlds fosters understanding.
+          </div>
+        </li>
+      </ul>
+    </div>
   </section>
 
-  <!-- Section: Origin and Evolution -->
-  <section class="bg-white p-6 rounded-2xl shadow-md">
-    <h2 class="text-2xl font-bold text-blue-950 mb-4">Origin and Evolution of the Spiritist Doctrine</h2>
-    <p class="text-gray-700">
-      The Spiritist Doctrine originated in 19th-century France through the work of Allan Kardec, a respected educator and scientist. In 1857, he published “The Book of Spirits”, launching the movement. His scientific and moral approach shaped the development of Spiritism, later expanded by complementary works and spreading globally—especially in Brazil.
-    </p>
-  </section>
-
-  <!-- Section: Foundations of Spiritism -->
-  <section class="bg-white p-6 rounded-2xl shadow-md">
-    <h2 class="text-2xl font-bold text-blue-950 mb-4">Foundations of the Spiritist Concept</h2>
-    <ul class="list-disc pl-5 text-gray-700 space-y-2">
-      <li><strong>Existence of God</strong> – One universal creator sustains everything.</li>
-      <li><strong>Immortality of the Soul</strong> – The spirit evolves eternally through multiple lives.</li>
-      <li><strong>Reincarnation</strong> – Each life offers growth and learning for the soul.</li>
-      <li><strong>Law of Cause and Effect</strong> – All actions bring consequences for moral progress.</li>
-      <li><strong>Mediumship</strong> – Communication between physical and spiritual worlds fosters understanding.</li>
-    </ul>
-  </section>
-
-  <!-- Section: Worldwide Movement -->
-  <section class="bg-white p-6 rounded-2xl shadow-md">
-    <h2 class="text-2xl font-bold text-blue-950 mb-4">The Spiritist Movement Around the World</h2>
-    <p class="text-gray-700">
-      Spiritism began in France and spread worldwide. It thrives especially in Brazil, where influential mediums like Chico Xavier and Divaldo Franco expanded its reach. Today, it is practiced across Europe, North and South America, promoting peace, inner transformation, and spiritual growth through study, charity, and collective learning.
-    </p>
+  <!-- Worldwide Movement Section -->
+  <section class="bg-white p-8 rounded-2xl shadow-md">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="order-2 md:order-1">
+        <h2 class="text-3xl font-bold text-blue-950 mb-6">The Spiritist Movement Worldwide</h2>
+        <div class="space-y-4 text-gray-700">
+          <p>
+            The Spiritist movement began in France in the 19th century and quickly spread to other countries, with particular significance in Brazil, where Spiritism became one of the leading philosophical and religious currents. In Brazil, the Spiritist movement consolidated with the contributions of great mediums and thinkers, such as Chico Xavier, Divaldo Pereira Franco, and others, who helped expand the doctrine through books, lectures, and charitable work..
+          </p>
+          <p>
+            Today, Spiritism is practiced in many countries around the world, such as France, Portugal, Spain, the United States, and Latin America, with a significant presence in Brazil. The Spiritist movement continues to expand, with millions of followers seeking, through study, practice, and understanding of Spiritist principles, to promote peace, well-being, and moral and spiritual evolution.
+          </p>
+        </div>
+      </div>
+      <div class="order-1 md:order-2 h-full rounded-xl overflow-hidden shadow-lg">
+        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1933&auto=format&fit=crop"
+             alt="World map with spiritual symbols"
+             class="w-full h-full object-cover">
+      </div>
+    </div>
   </section>
 
 </div>
-
-
