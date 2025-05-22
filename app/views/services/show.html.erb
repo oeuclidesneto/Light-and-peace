@@ -1,40 +1,343 @@
-<div class="max-w-3xl mx-auto px-6 py-10 bg-white shadow-xl rounded-2xl mt-10">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+  <div class="bg-white shadow-xl rounded-2xl overflow-hidden">
+    <!-- Header with Dynamic Icon -->
+    <div class="bg-gradient-to-r from-blue-50 to-white px-8 py-6 border-b border-gray-100">
+      <% icon = case @service.title.downcase
+        when "study group" then "fas fa-book-open text-blue-600"
+        when "lecture" then "fas fa-microphone text-green-600"
+        when "energy healing" then "fas fa-hands-praying text-purple-600"
+        when "fraternal assistance" then "fas fa-hands-helping text-red-600"
+        when "children's and youth group", "children’s and youth group" then "fas fa-users text-yellow-600"
+        when "library" then "fas fa-book-reader text-indigo-600"
+        when "gospel at home - spiritual support" then "fas fa-house text-teal-600"
+        else "fas fa-circle text-gray-600"
+      end %>
 
-  <!-- Icon -->
-  <% icon = case @service.title.downcase
-    when "study group" then "fas fa-book-open text-blue-600"
-    when "lecture" then "fas fa-microphone text-green-600"
-    when "energy healing" then "fas fa-hands-praying text-purple-600"
-    when "fraternal assistance" then "fas fa-hands-helping text-red-600"
-    when "children’s and youth group" then "fas fa-users text-yellow-600"
-    when "library" then "fas fa-book-reader text-indigo-600"
-    when "gospel at home - spiritual support" then "fas fa-house text-teal-600"
-    else "fas fa-circle text-gray-600"
-  end %>
-
-  <div class="flex justify-center mb-4">
-    <i class="<%= icon %> text-5xl"></i>
-  </div>
-
-  <!-- Title -->
-  <h1 class="text-3xl font-bold text-gray-800 text-center mb-4"><%= @service.title %></h1>
-
-<!-- Description -->
-<div class="text-center text-gray-700 text-lg leading-relaxed space-y-4">
-  <%= formatted_service_description(@service) %>
-
-  <% if @service.title == "Lecture" %>
-    <div class="mt-8">
-      <iframe class="w-full h-64 md:h-72 rounded-xl shadow-md"
-        src="https://www.youtube.com/embed/videoseries?list=PL3ndO6KXXvx8Sz52sxXIJ-IgcQt6HJAR4"
-        frameborder="0" allowfullscreen>
-      </iframe>
+      <div class="flex items-center space-x-4">
+        <i class="<%= icon %> text-4xl"></i>
+        <h1 class="text-3xl font-bold text-gray-800"><%= @service.title %></h1>
+      </div>
     </div>
-  <% end %>
-</div>
 
-  <!-- Back to Services Button -->
-  <div class="text-center mt-8">
-    <%= link_to "← Back to Services", services_path, class: "text-blue-600 hover:text-blue-800 font-semibold underline" %>
+    <!-- Content -->
+    <div class="p-8">
+      <!-- Description -->
+      <div class="prose max-w-none text-gray-700">
+        <%= formatted_service_description(@service) %>
+      </div>
+
+      <% if @service.title.downcase == "study group" %>
+        <!-- Current Book Section -->
+        <div class="mt-8 bg-blue-50 p-6 rounded-lg border border-blue-100">
+          <div class="flex items-start">
+            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-lg">
+              <i class="fas fa-star text-blue-600 text-xl"></i>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-xl font-semibold text-blue-800 mb-2">Currently Studying:</h3>
+              <p class="text-lg font-medium text-gray-800">O Homem Integral (The Integral Man)</p>
+              <p class="mt-2 text-gray-600">Join us as we explore this work for self-discovery and transformation.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Joanna de Ângelis Introduction -->
+        <div class="mt-8 prose max-w-none">
+          <h2 class="text-2xl font-bold text-gray-800">About Joanna de Ângelis</h2>
+          <p>The spiritual author Joanna de Ângelis is known for her works psychographed by Divaldo Pereira Franco. Her work focuses on self-knowledge and inner reform, integrating concepts of psychology and spirituality.</p>
+
+          <h3 class="text-xl font-semibold mt-6">Psychological Series</h3>
+          <p>This series consists of 16 books that deeply explore psychology and human behavior from a spiritualist perspective, providing tools for self-knowledge, emotional healing, and inner transformation.</p>
+        </div>
+
+        <!-- Book Accordion -->
+        <div class="mt-8">
+          <h2 class="text-2xl font-bold text-gray-800 mb-6">Books in the Psychological Series</h2>
+          <!-- Insert your accordion component here -->
+          <div class="space-y-3 pb-10" x-data="{ activeAccordion: null }">
+          <!-- Book 1 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 1 ? activeAccordion = null : activeAccordion = 1"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 1 }"
+            >
+              <span class="font-medium text-gray-800">1. Jesus e Atualidade (Jesus and Modernity)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 1 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 1" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">The relevance of Jesus' thought continues to surprise even the most skeptical scholars of human problems, which remain complex and challenging in modern times. The Venerable Benefactor presents in this small but great book twenty situations addressing everyday occurrences that bewilder civilization, seeking answers in Jesus' therapeutic approach, whose results are undoubtedly health, peace, and happiness.</p>
+            </div>
+          </div>
+
+          <!-- Book 2 - CURRENT BOOK -->
+          <div class="border-2 border-blue-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 2 ? activeAccordion = null : activeAccordion = 2"
+              class="w-full flex justify-between items-center p-4 bg-blue-50 hover:bg-blue-100 text-left"
+              :class="{ 'bg-blue-100': activeAccordion === 2 }"
+            >
+              <span class="font-medium text-blue-800">2. O Homem Integral (The Integral Man)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 2 }" class="w-5 h-5 text-blue-600 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 2" x-collapse class="p-4 bg-white border-t border-blue-200">
+              <p class="text-gray-700">In this extraordinary essay, the Venerable Joanna de Ângelis, through psychography, analyzes all the philosophical and psychological aspects involved in the complex formation of the Integral Man, examining them from the perspective of Spiritist Psychology. The book presents a comprehensive view of human development, integrating physical, emotional, mental, and spiritual dimensions.</p>
+            </div>
+          </div>
+
+          <!-- Book 3 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 3 ? activeAccordion = null : activeAccordion = 3"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 3 }"
+            >
+              <span class="font-medium text-gray-800">3. Plenitude (Plenitude)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 3 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 3" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">The spiritual author makes a profound psychological analysis of aspects of suffering, proposing the spiritualist solution, inviting to Self-Discovery, to evangelical living and lucid behavior, essential requirements for achieving plenitude. The work examines how we can transform suffering into growth opportunities and find fulfillment through spiritual understanding.</p>
+            </div>
+          </div>
+
+          <!-- Book 4 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 4 ? activeAccordion = null : activeAccordion = 4"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 4 }"
+            >
+              <span class="font-medium text-gray-800">4. Momentos de Saúde e de Consciência (Moments of Health and Consciousness)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 4 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 4" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">The conquest of integral health is the goal desired by the human creature. Achieving harmony between organic, emotional and psychic balance, in a general framework of well-being, constitutes a great challenge for human intelligence that, for millennia, has resorted to the most varied and complex experiences, which have resulted in admirable and valuable achievements.</p>
+            </div>
+          </div>
+
+          <!-- Book 5 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 5 ? activeAccordion = null : activeAccordion = 5"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 5 }"
+            >
+              <span class="font-medium text-gray-800">5. O Ser Consciente (The Conscious Being)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 5 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 5" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">"This modest book, which we now bring to the dear reader's analysis, intends, without presumption, to help him in the conquest of consciousness. It does not present any new or miraculous technique. It studies some human problems in the light of the Fourth Force in Psychology, building a bridge towards Spiritist Doctrine, which carries a deep and integral vision of the being."</p>
+            </div>
+          </div>
+
+          <!-- Book 6 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 6 ? activeAccordion = null : activeAccordion = 6"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 6 }"
+            >
+              <span class="font-medium text-gray-800">6. Autodescobrimento (Self-Discovery)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 6 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 6" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">"When presenting our book to those interested in deciphering themselves, we try to build bridges between the mechanisms of Humanist and Transpersonal Psychologies with the Spiritist Doctrine, which illuminates and completes them, thus cooperating in some way with those who are engaged in the inner search, in self-discovery." - Joanna de Ângelis</p>
+            </div>
+          </div>
+
+          <!-- Book 7 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 7 ? activeAccordion = null : activeAccordion = 7"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 7 }"
+            >
+              <span class="font-medium text-gray-800">7. Desperte e Seja Feliz (Awaken and Be Happy)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 7 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 7" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">"Contemporary men and women, seduced by the immoderate ambitions of power that provide them with luxury, leisure and pleasures, remain asleep to the grave spiritual responsibilities. Considering themselves of secondary importance, in the vain supposition that they can remedy the intimate situation at any moment, they transfer thought and emotion to the outside, with great losses of internal harmony." - Joanna de Ângelis</p>
+            </div>
+          </div>
+
+          <!-- Book 8 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 8 ? activeAccordion = null : activeAccordion = 8"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 8 }"
+            >
+              <span class="font-medium text-gray-800">8. Vida: Desafios e Soluções (Life: Challenges and Solutions)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 8 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 8" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">The messenger of Immortality offers, in simple and accessible language, studies of human problems in the light of Spiritist Psychology with the subsidies of Transpersonal Psychology, in order to alleviate the problems and difficulties of bodily existence, preparing the Spirit for its future destination.</p>
+            </div>
+          </div>
+
+          <!-- Book 9 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 9 ? activeAccordion = null : activeAccordion = 9"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 9 }"
+            >
+              <span class="font-medium text-gray-800">9. Amor, Imbatível Amor (Love, Unbeatable Love)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 9 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 9" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">In this masterful work of the Psychological Series, which began a new spiritual language, the benefactor Joanna de Ângelis examines various psychopathologies and contemporary conflicts, establishing a spiritual bridge between the therapies of admirable specialists and Love. Themes of deep interest to creatures are addressed from various angles, culminating in the liberating and ideal spiritual vision.</p>
+            </div>
+          </div>
+
+          <!-- Book 10 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 10 ? activeAccordion = null : activeAccordion = 10"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 10 }"
+            >
+              <span class="font-medium text-gray-800">10. O Despertar do Espírito (The Awakening of the Spirit)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 10 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 10" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">The spiritual benefactor Joanna de Ângelis brings, for study and meditation, another Work of her Psychological Series. The Awakening of the Spirit, as the title says, is an in-depth study of the existential being who survives the tomb and precedes the cradle, going through the various stages of human experiences during reincarnation.</p>
+            </div>
+          </div>
+
+          <!-- Book 11 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 11 ? activeAccordion = null : activeAccordion = 11"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 11 }"
+            >
+              <span class="font-medium text-gray-800">11. Jesus e o Evangelho (Jesus and the Gospel)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 11 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 11" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">Much has been said and written about Jesus and the Gospel. The noble Spirit Joanna de Ângelis, through the mediumship of Divaldo Franco, celebrating the two thousand years of His birth, made a timely study in the light of depth psychology about His life and His message in the magnificent Work we are offering to the dear Reader.</p>
+            </div>
+          </div>
+
+          <!-- Book 12 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 12 ? activeAccordion = null : activeAccordion = 12"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 12 }"
+            >
+              <span class="font-medium text-gray-800">12. Triunfo Pessoal (Personal Triumph)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 12 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 12" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">Focusing on Jung's remarkable contribution, the author introduces the thought of experienced psychiatrists, psychoanalysts, biologists, to demonstrate that at the root of every disorder, affliction, illness or suffering, there is the eternal Spirit, responsible for the occurrences that can be used for its rebalancing, its recovery, its peace.</p>
+            </div>
+          </div>
+
+          <!-- Book 13 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 13 ? activeAccordion = null : activeAccordion = 13"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 13 }"
+            >
+              <span class="font-medium text-gray-800">13. Conflitos Existenciais (Existential Conflicts)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 13 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 13" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">In his unmistakable style, the Noble Spirit Joanna de Ângelis presents us with Existential Conflicts, summarizing "several disturbing behaviors that present resistance tests for the human individual", focused in the light of psychology, psychoanalysis and psychiatry, but under the prism of the Spiritist Doctrine.</p>
+            </div>
+          </div>
+
+          <!-- Book 14 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 14 ? activeAccordion = null : activeAccordion = 14"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 14 }"
+            >
+              <span class="font-medium text-gray-800">14. Encontro com a Paz e a Saúde (Meeting with Peace and Health)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 14 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 14" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">With admirable lucidity and unique argumentation, through the psychography of Divaldo Franco, the Venerable Joanna de Ângelis unequivocally reiterates her profound knowledge of Transpersonal Psychology, stringing together a rosary of nuances of the human soul, dissecting its feelings and the profound transformations that the being goes through, from the dawn of its existence on Earth to the present day.</p>
+            </div>
+          </div>
+
+          <!-- Book 15 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 15 ? activeAccordion = null : activeAccordion = 15"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 15 }"
+            >
+              <span class="font-medium text-gray-800">15. Em Busca da Verdade (In Search of Truth)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 15 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 15" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">The venerated Joanna de Ângelis offers us IN SEARCH OF TRUTH, another extraordinary Work with profound lessons that lead us through safe guidelines, to achieve psychological maturity - which we so much need - in order to free our Spirit from the dense layers that hinder its long journey in the difficult march of evolution.</p>
+            </div>
+          </div>
+
+          <!-- Book 16 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              @click="activeAccordion === 16 ? activeAccordion = null : activeAccordion = 16"
+              class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 text-left"
+              :class="{ 'bg-blue-50': activeAccordion === 16 }"
+            >
+              <span class="font-medium text-gray-800">16. Psicologia da Gratidão (Psychology of Gratitude)</span>
+              <svg :class="{ 'rotate-180': activeAccordion === 16 }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div x-show="activeAccordion === 16" x-collapse class="p-4 bg-white border-t border-gray-200">
+              <p class="text-gray-700">THE PSYCHOLOGY OF GRATITUDE becomes a skillful instrument in the ego-self axis, and should be experienced at all moments of bodily existence as a safety script for the conquest of its reality. Daughter of psychological maturity, it enriches with peace and joy all who cultivate it. In these days of violence and cruelty, of indifference to relevant moral and emotional values, gratitude has a significant role to play in reference to the integral health of human beings.</p>
+            </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Footer -->
+    <div class="px-8 py-6 bg-gray-50 border-t border-gray-100 text-center">
+      <%= link_to services_path, class: "inline-flex items-center text-blue-600 hover:text-blue-800 font-medium" do %>
+        <i class="fas fa-arrow-left mr-2"></i>
+        Back to Services
+      <% end %>
+    </div>
   </div>
 </div>
+
+<!-- AlpineJS -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
