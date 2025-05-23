@@ -13,6 +13,125 @@ end
 
 puts "✅ Speeches imported successfully!"
 
+Book.destroy_all
+
+Book.create!([
+  {
+    position: 1,
+    current: false,
+    title: "Jesus e Atualidade",
+    subtitle: "Jesus and Modernity",
+    description: "The relevance of Jesus' thought continues to surprise even the most skeptical scholars of human problems..."
+  },
+  {
+    position: 2,
+    current: true,
+    title: "O Homem Integral",
+    subtitle: "The Integral Man",
+    description: "In this extraordinary essay, Joanna de Ângelis analyzes all the philosophical and psychological aspects..."
+  },
+  {
+    position: 3,
+    current: false,
+    title: "Plenitude",
+    subtitle: "Plenitude",
+    description: "The spiritual author makes a profound psychological analysis of aspects of suffering..."
+  },
+  {
+    position: 4,
+    current: false,
+    title: "Momentos de Saúde e de Consciência",
+    subtitle: "Moments of Health and Consciousness",
+    description: "The conquest of integral health is the goal desired by the human creature..."
+  },
+  {
+    position: 5,
+    current: false,
+    title: "O Ser Consciente",
+    subtitle: "The Conscious Being",
+    description: "This modest book intends to help in the conquest of consciousness. It studies human problems in light of the Fourth Force in Psychology..."
+  },
+  {
+    position: 6,
+    current: false,
+    title: "Autodescobrimento",
+    subtitle: "Self-Discovery",
+    description: "We try to build bridges between Humanist and Transpersonal Psychologies with the Spiritist Doctrine..."
+  },
+  {
+    position: 7,
+    current: false,
+    title: "Desperte e Seja Feliz",
+    subtitle: "Awaken and Be Happy",
+    description: "Contemporary men and women, seduced by ambitions of power and pleasure, remain asleep to spiritual responsibilities..."
+  },
+  {
+    position: 8,
+    current: false,
+    title: "Vida: Desafios e Soluções",
+    subtitle: "Life: Challenges and Solutions",
+    description: "Studies of human problems in the light of Spiritist and Transpersonal Psychology to prepare the Spirit for its future destination."
+  },
+  {
+    position: 9,
+    current: false,
+    title: "Amor, Imbatível Amor",
+    subtitle: "Love, Unbeatable Love",
+    description: "Examines various psychopathologies and conflicts, building a spiritual bridge to Love as the ultimate healing force."
+  },
+  {
+    position: 10,
+    current: false,
+    title: "O Despertar do Espírito",
+    subtitle: "The Awakening of the Spirit",
+    description: "A deep study of the existential being across reincarnations and the awakening to spiritual awareness."
+  },
+  {
+    position: 11,
+    current: false,
+    title: "Jesus e o Evangelho",
+    subtitle: "Jesus and the Gospel",
+    description: "A depth psychology study of Jesus’ life and message, psychographed by Divaldo Franco."
+  },
+  {
+    position: 12,
+    current: false,
+    title: "Triunfo Pessoal",
+    subtitle: "Personal Triumph",
+    description: "Shows how every disorder or suffering stems from the Spirit’s internal state, with lessons drawn from Jungian and Spiritist perspectives."
+  },
+  {
+    position: 13,
+    current: false,
+    title: "Conflitos Existenciais",
+    subtitle: "Existential Conflicts",
+    description: "Analyzes modern psychological conflicts under the lens of the Spiritist Doctrine."
+  },
+  {
+    position: 14,
+    current: false,
+    title: "Encontro com a Paz e a Saúde",
+    subtitle: "Meeting with Peace and Health",
+    description: "Explores feelings and inner transformations using Transpersonal Psychology and Spiritist principles."
+  },
+  {
+    position: 15,
+    current: false,
+    title: "Em Busca da Verdade",
+    subtitle: "In Search of Truth",
+    description: "Guides the reader toward psychological maturity and spiritual evolution through deep inner work."
+  },
+  {
+    position: 16,
+    current: false,
+    title: "Psicologia da Gratidão",
+    subtitle: "Psychology of Gratitude",
+    description: "Gratitude becomes a tool for psychological and spiritual health — especially in a world of moral indifference."
+  }
+])
+
+puts "📚 Books seeded successfully!"
+
 # Seed services
 puts "🌱 Seeding Services..."
 
@@ -88,4 +207,8 @@ CentreEvent.create!([
 ])
 
 puts "✅ Events seeded successfully!"
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+AdminUser.find_or_create_by!(email: 'admin@example.com') do |admin|
+  admin.password = 'password'
+  admin.password_confirmation = 'password'
+end if Rails.env.development?
