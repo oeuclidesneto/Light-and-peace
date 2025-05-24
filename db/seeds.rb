@@ -201,7 +201,7 @@ Service.find_or_create_by!(slug: "gospel-at-home") do |service|
   service.description = "Spiritual support held at home, offered by appointment."
   service.full_description = "Gospel at Home is a Spiritist practice aimed at promoting spiritual harmony and strengthening family bonds through the reflection on the teachings of Jesus Christ, found in the Gospel According to Spiritism. Held within the home, this moment of study and prayer seeks to create an atmosphere of peace and balance, dispelling negative energies and fostering the moral development of participants. Our centre offers the Gospel at Home support for those interested in practicing this ritual in their residence. The service, which is free of charge, lasts 30 to 40 minutes at most, and requires no special reception from the hosts. The only request is that there be available water for fluidification, to be consumed by the household members during or after the session. If you wish to schedule Gospel at Home in your house, simply fill out the booking request on our website. One of the responsible coordinators for our Gospel at Home service will contact you shortly to confirm your appointment."
   service.icon = "fa-solid fa-house"
-  service.color = "#cdeac0"
+  service.color = "#f97316"
 end
 
 puts "✅ Services seeded successfully!"
