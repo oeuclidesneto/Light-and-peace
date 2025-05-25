@@ -2,87 +2,93 @@
   <div class="bg-white shadow-xl rounded-2xl overflow-hidden">
     <!-- Header with Dynamic Icon -->
     <div class="bg-gradient-to-r from-blue-50 to-white px-8 py-6 border-b border-gray-100">
-      <% icon = case @service.title.downcase
-        when "study group" then "fas fa-book-open text-blue-600"
-        when "lecture" then "fas fa-microphone text-green-600"
-        when "energy healing" then "fas fa-hands-praying text-purple-600"
-        when "fraternal assistance" then "fas fa-hands-helping text-red-600"
-        when "children's and youth group", "children’s and youth group" then "fas fa-users text-yellow-600"
-        when "library" then "fas fa-book-reader text-indigo-600"
-        when "gospel at home - spiritual support" then "fas fa-house text-teal-600"
-        else "fas fa-circle text-gray-600"
-      end %>
-
       <div class="flex items-center space-x-4">
-        <i class="<%= icon %> text-4xl"></i>
+        <% icon_class, text_color = case @service.title.downcase
+            when "study group" then ["fas fa-book-open", "text-blue-600"]
+            when "energy healing" then ["fas fa-hands-praying", "text-purple-600"]
+            when "children's and youth group", "children’s and youth group" then ["fas fa-users", "text-yellow-600"]
+            when "lecture" then ["fas fa-microphone-alt", "text-green-600"]
+            when "library" then ["fas fa-book", "text-indigo-600"]
+            when "fraternal assistance" then ["fas fa-hands-helping", "text-red-600"]
+            when "gospel at home - spiritual support" then ["fas fa-home", "text-orange-600"]
+            else ["fas fa-circle", "text-gray-600"]
+          end %>
+        <i class="<%= icon_class %> text-4xl <%= text_color %>"></i>
         <h1 class="text-3xl font-bold text-gray-800"><%= @service.title %></h1>
       </div>
     </div>
-
     <!-- Content -->
     <div class="p-8 pb-12">
-      <!-- Description -->
-      <div class="prose max-w-none text-gray-700">
-        <%= formatted_service_description(@service) %>
-      </div>
+      <% if @service.slug == "library" %>
+        <div class="prose max-w-none text-gray-700">
+          <p>Our Spiritist library will soon be fully integrated into this website, offering a digital catalog, book reservations, and management tools directly accessible online.</p>
+          <p>For now, explore high-quality Spiritist literature through:</p>
+          <ul class="list-disc ml-5 space-y-1">
+            <li><a href="https://kardecpedia.com/" target="_blank" class="text-blue-600 hover:underline">Kardecpedia</a></li>
+            <li><a href="https://ssbaltimore.org/e-books" target="_blank" class="text-blue-600 hover:underline">SSBaltimore E-books</a></li>
+            <li><a href="https://www.bvespirita.net/" target="_blank" class="text-blue-600 hover:underline">BV Espírita</a></li>
+          </ul>
+          <p>These collections offer hundreds of free Spiritist works. Stay tuned as we launch the full system!</p>
+        </div>
+      <% else %>
+        <div class="prose max-w-none text-gray-700">
+          <%= formatted_service_description(@service) %>
+        </div>
+      <% end %>
 
       <% if @service.title.downcase == "study group" %>
-  <!-- Current Book Section -->
-  <% if @current_book %>
-    <div class="mt-8 bg-blue-50 p-6 rounded-lg border border-blue-100">
-      <div class="flex items-start">
-        <div class="flex-shrink-0 bg-blue-100 p-3 rounded-lg">
-          <i class="fas fa-star text-blue-600 text-xl"></i>
+        <% if @current_book %>
+          <div class="mt-8 bg-blue-50 p-6 rounded-lg border border-blue-100">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 bg-blue-100 p-3 rounded-lg">
+                <i class="fas fa-star text-blue-600 text-xl"></i>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-xl font-semibold text-blue-800 mb-2">Currently Studying:</h3>
+                <p class="text-lg font-medium text-gray-800"><%= @current_book.title %> (<%= @current_book.subtitle %>)</p>
+                <p class="mt-2 text-gray-600">Join us as we explore this work for self-discovery and transformation.</p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="mt-8 prose max-w-none">
+          <h2 class="text-2xl font-bold text-gray-800">About Joanna de Ângelis</h2>
+          <p>The spiritual author Joanna de Ângelis is known for her works psychographed by Divaldo Pereira Franco. Her work focuses on self-knowledge and inner reform, integrating concepts of psychology and spirituality.</p>
+          <h3 class="text-xl font-semibold mt-6">Psychological Series</h3>
+          <p>This series consists of 16 books that deeply explore psychology and human behavior from a spiritualist perspective, providing tools for self-knowledge, emotional healing, and inner transformation.</p>
         </div>
-        <div class="ml-4">
-          <h3 class="text-xl font-semibold text-blue-800 mb-2">Currently Studying:</h3>
-          <p class="text-lg font-medium text-gray-800"><%= @current_book.title %> (<%= @current_book.subtitle %>)</p>
-          <p class="mt-2 text-gray-600">Join us as we explore this work for self-discovery and transformation.</p>
-        </div>
-      </div>
-    </div>
-  <% end %>
 
-  <!-- Joanna de Ângelis Introduction -->
-  <div class="mt-8 prose max-w-none">
-    <h2 class="text-2xl font-bold text-gray-800">About Joanna de Ângelis</h2>
-    <p>The spiritual author Joanna de Ângelis is known for her works psychographed by Divaldo Pereira Franco. Her work focuses on self-knowledge and inner reform, integrating concepts of psychology and spirituality.</p>
-
-    <h3 class="text-xl font-semibold mt-6">Psychological Series</h3>
-    <p>This series consists of 16 books that deeply explore psychology and human behavior from a spiritualist perspective, providing tools for self-knowledge, emotional healing, and inner transformation.</p>
-  </div>
-
-  <!-- Book Accordion -->
-  <div class="mt-8">
-    <h2 class="text-2xl font-bold text-gray-800 mb-6">Books in the Psychological Series</h2>
-    <div class="space-y-3 pb-10" x-data="{ activeAccordion: null }">
-      <% @books.each_with_index do |book, index| %>
-        <div class="border rounded-lg overflow-hidden <%= 'border-blue-200' if book.current %>">
-          <button
-            @click="activeAccordion === <%= index + 1 %> ? activeAccordion = null : activeAccordion = <%= index + 1 %>"
-            class="w-full flex justify-between items-center p-4 text-left <%= book.current ? 'bg-blue-50 hover:bg-blue-100 text-blue-800' : 'bg-gray-50 hover:bg-gray-100' %>"
-            :class="{ 'bg-blue-100': activeAccordion === <%= index + 1 %> }"
-          >
-            <span class="font-medium"><%= "#{book.position}. #{book.title} (#{book.subtitle})" %></span>
-            <svg :class="{ 'rotate-180': activeAccordion === <%= index + 1 %> }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div x-show="activeAccordion === <%= index + 1 %>" x-collapse class="p-4 bg-white border-t">
-            <p class="text-gray-700"><%= book.description %></p>
+        <div class="mt-8">
+          <h2 class="text-2xl font-bold text-gray-800 mb-6">Books in the Psychological Series</h2>
+          <div class="space-y-3 pb-10" x-data="{ activeAccordion: null }">
+            <% @books.each_with_index do |book, index| %>
+              <div class="border rounded-lg overflow-hidden <%= 'border-blue-200' if book.current %>">
+                <button
+                  @click="activeAccordion === <%= index + 1 %> ? activeAccordion = null : activeAccordion = <%= index + 1 %>"
+                  class="w-full flex justify-between items-center p-4 text-left <%= book.current ? 'bg-blue-50 hover:bg-blue-100 text-blue-800' : 'bg-gray-50 hover:bg-gray-100' %>"
+                  :class="{ 'bg-blue-100': activeAccordion === <%= index + 1 %> }"
+                >
+                  <span class="font-medium"><%= "#{book.position}. #{book.title} (#{book.subtitle})" %></span>
+                  <svg :class="{ 'rotate-180': activeAccordion === <%= index + 1 %> }" class="w-5 h-5 text-gray-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div x-show="activeAccordion === <%= index + 1 %>" x-collapse class="p-4 bg-white border-t">
+                  <p class="text-gray-700"><%= book.description %></p>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>
+
+      <div class="text-center mt-6">
+        <%= link_to services_path, class: "text-blue-600 hover:text-blue-700 font-semibold" do %>
+          Back to Services
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
-
-
-   <!-- Centered Back to Services Button -->
-    <div class="text-center mt-6">
-      <%= link_to services_path, class: "text-blue-600 hover:text-blue-700 font-semibold" do %>
-      Back to Services
-      <% end %>
   </div>
 </div>
 
