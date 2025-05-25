@@ -141,7 +141,7 @@ services_data = [
     title: "Study Group",
     description: "Engage in discussions on the works of Joanna de Ângelis for self-discovery and transformation.",
     full_description: "Engage in weekly studies of Joanna de Ângelis' teachings and Spiritist psychology for self-discovery and transformation.",
-    icon: "fa-solid fa-book-open",
+    icon: "fas fa-book-open",
     color: "#a3c9f1"
   },
   {
@@ -149,7 +149,7 @@ services_data = [
     title: "Energy Healing",
     description: "Experience spiritual renewal and balance through the laying on of hands.",
     full_description: "According to Spiritism, diseases and imbalances originate in the spiritual body, also known as the perispirit, which is the subtle envelope that connects the spirit to the physical body. According to the teachings of Allan Kardec and other Spiritist authors, physical ailments often reflect disturbances in the spiritual body, which in turn can be influenced by negative thoughts, emotions, and unbalanced behaviors of the individual. When the perispirit is misaligned or out of balance due to negative feelings, past traumas, or wrongful actions, these imbalances can manifest in the physical body, resulting in illnesses or emotional problems. Additionally, the perispirit can be influenced by spiritual entities, which may act either positively or negatively, depending on the individual’s spiritual and moral state. Energy Healing is directly connected to this concept. In Energy Healing, the medium, with the help of higher spirits, transmits healing energy that works on the individual’s perispirit, promoting harmonization and restoring spiritual balance. As the perispirit is the link between the physical body and the spirit, balancing it can help improve the emotional and physical state of the person, preventing or alleviating symptoms that have their origins in spiritual disharmony. Thus, Energy Healing is a tool to restore energetic and spiritual balance, which in turn positively affects the individual's physical and emotional health.",
-    icon: "fa-solid fa-star-and-crescent",
+    icon: "fas fa-star-and-crescent",
     color: "#dcd6f7"
   },
   {
@@ -157,7 +157,7 @@ services_data = [
     title: "Children’s and Youth Group",
     description: "A space for young people to learn Spiritist values through engaging activities.",
     full_description: "Our Children’s and Youth Group meets weekly to engage young people in Spiritist teachings through dynamic and age-appropriate activities. We explore values like kindness, respect, and cooperation using stories, games, and conversations that connect spiritual concepts with everyday life. Through shared experiences, children and teens develop a sense of community, spiritual identity, and tools for inner growth that stay with them for life. Parents are welcome to engage and support their children’s development in a safe, welcoming environment.",
-    icon: "fa-solid fa-children",
+    icon: "fas fa-children",
     color: "#fbc4ab"
   },
   {
@@ -165,7 +165,7 @@ services_data = [
     title: "Lecture",
     description: "Attend lectures that explore Spiritist philosophy and its applications in daily life.",
     full_description: "Spiritist lectures are weekly moments of reflection and learning, open to everyone, aiming to provide moral and spiritual guidance through the teachings of Spiritism. These talks explore diverse topics based on the Gospel According to Spiritism and other Spiritist works, encouraging attendees to develop self-awareness, inner peace, and a deeper connection to the spiritual world. During the lectures, speakers from our centre or invited guests present Spiritist principles applied to daily life, helping participants navigate life’s challenges with clarity and compassion. The atmosphere is one of respect, serenity, and reflection. Lectures are held every Monday evening at the L&P centre and are free to attend.",
-    icon: "fa-solid fa-microphone",
+    icon: "fas fa-microphone",
     color: "#ffeaa7"
   },
   {
@@ -173,7 +173,7 @@ services_data = [
     title: "Library",
     description: "Explore our collection of Spiritist books and resources.",
     full_description: "Explore our Spiritist library and access trusted external resources. Visit our website for links to Kardecpedia, SS Baltimore, and BV Espírita.",
-    icon: "fa-solid fa-book-reader",
+    icon: "fas fa-book-reader",
     color: "#ffeaa7"
   },
   {
@@ -181,7 +181,7 @@ services_data = [
     title: "Fraternal Assistance",
     description: "Receive emotional and spiritual support through private conversations.",
     full_description: "Fraternal Assistance is a Spiritist practice of spiritual support and aid, with the main objective of offering comfort, guidance, and emotional help to assisted persons who seek relief for their difficulties, whether they are material, emotional, or spiritual. This assistance is provided in a welcoming manner, with great respect and care, aiming to help the assisted person understand their situations, always with the intention of supporting them in overcoming challenges and fostering moral and spiritual growth. In Fraternal Assistance, the assisted persons are listened to without judgment and receive guidance based on the principles of Spiritism, with an emphasis on self-awareness, strengthening faith, and understanding the spiritual laws that govern life. The assistance takes place confidentially within the L&P premises and is conducted by volunteer workers from the Spiritist Centre. Moreover, Fraternal Assistance does not involve any form of religious or spiritual imposition, serving as a moment of empathetic listening and the exchange of positive energy, focused on promoting inner peace and emotional and spiritual rebalancing for the assisted person. If you wish to schedule a Fraternal Assistance, simply fill out the booking request on our website. One of the responsible coordinators for our Fraternal Assistance service will contact you shortly to confirm your appointment.",
-    icon: "fa-solid fa-hand-holding-heart",
+    icon: "fas fa-hand-holding-heart",
     color: "#f8c291"
   },
   {
@@ -189,17 +189,17 @@ services_data = [
     title: "Gospel at Home - Spiritual Support",
     description: "Spiritual support held at home, offered by appointment.",
     full_description: "Gospel at Home is a Spiritist practice aimed at promoting spiritual harmony and strengthening family bonds through the reflection on the teachings of Jesus Christ, found in the Gospel According to Spiritism. Held within the home, this moment of study and prayer seeks to create an atmosphere of peace and balance, dispelling negative energies and fostering the moral development of participants. Our centre offers the Gospel at Home support for those interested in practicing this ritual in their residence. The service, which is free of charge, lasts 30 to 40 minutes at most, and requires no special reception from the hosts. The only request is that there be available water for fluidification, to be consumed by the household members during or after the session. If you wish to schedule Gospel at Home in your house, simply fill out the booking request on our website. One of the responsible coordinators for our Gospel at Home service will contact you shortly to confirm your appointment.",
-    icon: "fa-solid fa-house",
+    icon: "fas fa-house",
     color: "#f97316"
   }
 ]
 
 services_data.each do |data|
-  service = Service.find_or_initialize_by(slug: data[:slug])
-  service.assign_attributes(data.except(:slug))
+  service = Service.find_or_initialize_by(title: data[:title])
+  service.assign_attributes(data.except(:slug)) # preserve original slug
+  service.slug ||= data[:slug] # only assign slug if it's a new record
   service.save!
 end
-
 puts "✅ Services seeded successfully!"
 
 # Seed events
@@ -211,14 +211,14 @@ CentreEvent.create!([
     date: "Thursday, April 10, 2025 – 7:00 PM",
     description: "An open session to introduce newcomers to Spiritist teachings. All are welcome.",
     location: "Spiritist Centre, 38 Palmerston Rd, Unley SA",
-    icon: "fa-solid fa-calendar-days"
+    icon: "fas fa-calendar-days"
   },
   {
     title: "Mediumship Development Workshop",
     date: "Saturday, May 3, 2025 – 10:00 AM to 2:00 PM",
     description: "A guided workshop focused on mediumship practices and ethical development.",
     location: "Spiritist Centre, 38 Palmerston Rd, Unley SA",
-    icon: "fa-solid fa-hands-asl-interpreting"
+    icon: "fas fa-hands-asl-interpreting"
   }
 ])
 

@@ -2,100 +2,29 @@
   <h1 class="text-3xl font-bold text-gray-800 text-center">Our Services</h1>
   <p class="text-gray-600 text-center mt-2">Discover the spiritual and educational services we offer to the community.</p>
 
-  <!-- Services Grid -->
   <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-
-    <!-- Study Group -->
-    <% if (service = Service.find_by(title: "Study Group")) %>
-      <%= link_to service_path(service), class: "block" do %>
-        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex flex-col items-center space-y-2 text-center transform transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-lg cursor-pointer min-h-[140px]">
-          <i class="fas fa-book-open text-4xl text-blue-600"></i>
-          <div>
-            <h2 class="text-xl font-semibold text-gray-800 text-center">Study Group</h2>
-            <p class="text-gray-600"><%= service.description %></p>
-          </div>
+  <% Service.all.each do |service| %>
+    <%= link_to service_path(service), class: "block" do %>
+      <div class="bg-gray-100 p-4 rounded-lg shadow-md flex flex-col items-center space-y-2 text-center transform transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-lg cursor-pointer min-h-[140px]">
+        <% icon_class, text_color = case service.title.downcase
+             when "study group" then ["fas fa-book-open", "text-blue-600"]
+             when "energy healing" then ["fas fa-hands-praying", "text-purple-600"]
+             when "children's and youth group", "children’s and youth group" then ["fas fa-users", "text-yellow-600"]
+             when "lecture" then ["fas fa-microphone-alt", "text-green-600"]
+             when "library" then ["fas fa-book", "text-indigo-600"]
+             when "fraternal assistance" then ["fas fa-hands-helping", "text-red-600"]
+             when "gospel at home - spiritual support" then ["fas fa-home", "text-orange-600"]
+             else ["fas fa-circle", "text-gray-600"]
+           end %>
+        <i class="<%= icon_class %> text-4xl <%= text_color %>"></i>
+        <div>
+          <h2 class="text-xl font-semibold text-gray-800 text-center"><%= service.title %></h2>
+          <p class="text-gray-600"><%= service.description %></p>
         </div>
-      <% end %>
+      </div>
     <% end %>
-
-    <!-- Energy Healing -->
-    <% if (service = Service.find_by(title: "Energy Healing")) %>
-      <%= link_to service_path(service), class: "block" do %>
-        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex flex-col items-center space-y-2 text-center transform transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-lg cursor-pointer min-h-[140px]">
-          <i class="fas fa-hands-praying text-4xl text-purple-600"></i>
-          <div>
-            <h2 class="text-xl font-semibold text-gray-800 text-center">Energy Healing</h2>
-            <p class="text-gray-600"><%= service.description %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-
-    <!-- Children’s and Youth Group -->
-    <% if (service = Service.find_by(title: "Children’s and Youth Group")) %>
-      <%= link_to service_path(service), class: "block" do %>
-        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex flex-col items-center space-y-2 text-center transform transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-lg cursor-pointer min-h-[140px]">
-          <i class="fas fa-users text-4xl text-yellow-600"></i>
-          <div>
-            <h2 class="text-xl font-semibold text-gray-800 text-center">Children’s and Youth Group</h2>
-            <p class="text-gray-600"><%= service.description %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-
-    <!-- Lecture -->
-    <% if (service = Service.find_by(title: "Lecture")) %>
-      <%= link_to service_path(service), class: "block" do %>
-        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex flex-col items-center space-y-2 text-center transform transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-lg cursor-pointer min-h-[140px]">
-          <i class="fas fa-microphone text-4xl text-green-600"></i>
-          <div>
-            <h2 class="text-xl font-semibold text-gray-800 text-center">Lecture</h2>
-            <p class="text-gray-600"><%= service.description %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-
-    <!-- Library -->
-    <% if (service = Service.find_by(title: "Library")) %>
-      <%= link_to service_path(service), class: "block" do %>
-        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex flex-col items-center space-y-2 text-center transform transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-lg cursor-pointer min-h-[140px]">
-          <i class="fas fa-book-reader text-4xl text-indigo-600"></i>
-          <div>
-            <h2 class="text-xl font-semibold text-gray-800 text-center">Library</h2>
-            <p class="text-gray-600"><%= service.description %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-
-    <!-- Fraternal Assistance -->
-    <% if (service = Service.find_by(title: "Fraternal Assistance")) %>
-      <%= link_to service_path(service), class: "block" do %>
-        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex flex-col items-center space-y-2 text-center transform transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-lg cursor-pointer min-h-[140px]">
-          <i class="fas fa-hands-helping text-4xl text-red-600"></i>
-          <div>
-            <h2 class="text-xl font-semibold text-gray-800 text-center">Fraternal Assistance</h2>
-            <p class="text-gray-600"><%= service.description %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-
-    <!-- Gospel at Home -->
-    <% if (service = Service.find_by(title: "Gospel at Home - Spiritual Support")) %>
-      <%= link_to service_path(service), class: "block" do %>
-        <div class="bg-gray-100 p-4 rounded-lg shadow-md flex flex-col items-center space-y-2 text-center transform transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-lg cursor-pointer min-h-[140px]">
-          <i class="fas fa-house text-4xl text-orange-600"></i>
-          <div>
-            <h2 class="text-xl font-semibold text-gray-800 text-center">Gospel at Home</h2>
-            <p class="text-gray-600"><%= service.description %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <% end %>
+</div>
 
   <!-- Centered Back to Home Button -->
   <div class="text-center mt-6">
