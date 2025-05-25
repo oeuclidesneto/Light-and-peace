@@ -1,52 +1,49 @@
-<div class="max-w-5xl mx-auto p-6 space-y-10">
+<div class="max-w-4xl mx-auto px-4 py-10 space-y-8">
+  <h1 class="text-3xl font-bold text-blue-900">Quarterly Report</h1>
 
-  <!-- Header -->
-  <div>
-    <h1 class="text-4xl font-bold text-blue-900 mb-4">Quarterly Report</h1>
-    <p class="text-gray-700 mb-2">
-      We value transparency and accountability with all those who support and collaborate with Light & Peace.
-    </p>
-    <p class="text-gray-700 mb-2">
-      The Quarterly Report allows us to share the funds raised throughout each period, highlighting the sources of contribution used to maintain and grow our work.
-    </p>
-    <p class="text-gray-700">
-      Below, you can see a summary of each source and download the detailed report in PDF format.
-    </p>
-  </div>
-
-  <!-- Totals -->
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-    <div class="bg-blue-100 p-4 rounded-xl shadow">
-      <h3 class="font-bold text-blue-900 text-lg">Recyclables</h3>
-      <p class="text-sm text-gray-700 mb-2">Donations of cans, bottles, and more fund humanitarian projects.</p>
-      <p class="font-bold">Total: $<%= number_with_precision(@report.recyclables, precision: 2) %></p>
-    </div>
-    <div class="bg-green-100 p-4 rounded-xl shadow">
-      <h3 class="font-bold text-green-900 text-lg">Canteen</h3>
-      <p class="text-sm text-gray-700 mb-2">Helps cover rent, bills, memberships, and equipment.</p>
-      <p class="font-bold">Total: $<%= number_with_precision(@report.canteen, precision: 2) %></p>
-    </div>
-    <div class="bg-yellow-100 p-4 rounded-xl shadow">
-      <h3 class="font-bold text-yellow-900 text-lg">Donations</h3>
-      <p class="text-sm text-gray-700 mb-2">One-time donations support all ongoing activities and infrastructure.</p>
-      <p class="font-bold">Total: $<%= number_with_precision(@report.donations, precision: 2) %></p>
-    </div>
-  </div>
-
-  <!-- Download section -->
-  <% if @report.pdf.attached? %>
-    <div class="bg-gray-100 p-6 rounded-xl shadow space-y-2">
-      <h2 class="text-xl font-semibold text-blue-900">Download Full Report</h2>
-      <p class="text-gray-700">Click below to download the detailed quarterly report in PDF format.</p>
-      <a href="<%= rails_blob_path(@report.pdf, disposition: "attachment", only_path: true) %>" class="inline-block bg-blue-600 text-white px-5 py-2 rounded shadow hover:bg-blue-700">
-        Download PDF
-      </a>
-    </div>
-  <% end %>
-
-  <!-- Closing message -->
   <p class="text-gray-700">
-    We are deeply grateful to all contributors and reaffirm our commitment to charity, transparency, and responsible use of resources.
+    We value transparency and accountability with all those who support and collaborate with Light & Peace.
   </p>
 
+  <% if @report.recyclables.present? || @report.canteen.present? || @report.donations.present? || @report.report_pdf.attached? %>
+    <h2 class="text-2xl font-semibold text-blue-800 mt-6"><%= @report.quarter_and_year %></h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <% if @report.recyclables.present? %>
+        <div class="bg-blue-100 rounded-xl p-4 shadow">
+          <h3 class="font-semibold text-blue-800">Recyclables</h3>
+          <p class="text-sm text-gray-600">Donations of cans, bottles, and more fund humanitarian projects.</p>
+          <p class="font-bold mt-2">Total: $<%= number_with_precision(@report.recyclables, precision: 2) %></p>
+        </div>
+      <% end %>
+
+      <% if @report.canteen.present? %>
+        <div class="bg-green-100 rounded-xl p-4 shadow">
+          <h3 class="font-semibold text-green-800">Canteen</h3>
+          <p class="text-sm text-gray-600">Helps cover rent, bills, memberships, and equipment.</p>
+          <p class="font-bold mt-2">Total: $<%= number_with_precision(@report.canteen, precision: 2) %></p>
+        </div>
+      <% end %>
+
+      <% if @report.donations.present? %>
+        <div class="bg-yellow-100 rounded-xl p-4 shadow">
+          <h3 class="font-semibold text-yellow-800">Donations</h3>
+          <p class="text-sm text-gray-600">One-time donations support all ongoing activities and infrastructure.</p>
+          <p class="font-bold mt-2">Total: $<%= number_with_precision(@report.donations, precision: 2) %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @report.report_pdf.attached? %>
+      <div class="mt-6 bg-gray-100 p-4 rounded-xl shadow">
+        <p class="mb-2">Click below to view the detailed quarterly report in PDF format.</p>
+        <%= link_to "View PDF", rails_blob_url(@report.report_pdf), class: "inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" %>
+      </div>
+    <% end %>
+
+  <% else %>
+    <div class="bg-yellow-100 border border-yellow-300 text-yellow-800 p-6 rounded-xl shadow text-center">
+      <p>No data or PDF has been uploaded for this quarter yet. Please check back later.</p>
+    </div>
+  <% end %>
 </div>
