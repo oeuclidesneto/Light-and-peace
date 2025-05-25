@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
   def index
-    @events = CentreEvent.all.order(:date)
+    @events = CentreEvent.where('date > ?', Time.current).order(:date)
   end
 end
