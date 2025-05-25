@@ -12,6 +12,7 @@
     <h2 class="text-xl font-extrabold text-blue-900">Next Speech</h2>
   <p class="text-lg font-semibold"><span class="font-bold text-gray-950">Theme:</span> <span class="text-gray-950"><%= @next_speech.theme %></span></p>
   <p class="text-lg font-semibold"><span class="font-bold text-gray-950">Speaker:</span> <span class="text-gray-950"><%= @next_speech.speaker %></span></p>
+   <p class="text-lg font-semibold"><span class="font-bold text-gray-950">Date:</span> <span class="text-gray-950"><%= @next_speech.date.strftime("%d/%m/%Y")%></span></p>
   <p class="mt-2 text-gray-700">Join us and feel welcomed in a space of light and peace.</p>
 </div>
 
