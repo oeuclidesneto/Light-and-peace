@@ -205,22 +205,22 @@ puts "✅ Services seeded successfully!"
 # Seed events
 CentreEvent.destroy_all
 
-CentreEvent.create!([
-  {
-    title: "Intro to Spiritism",
-    date: "Thursday, April 10, 2025 – 7:00 PM",
-    description: "An open session to introduce newcomers to Spiritist teachings. All are welcome.",
-    location: "Spiritist Centre, 38 Palmerston Rd, Unley SA",
-    icon: "fas fa-calendar-days"
-  },
-  {
-    title: "Mediumship Development Workshop",
-    date: "Saturday, May 3, 2025 – 10:00 AM to 2:00 PM",
-    description: "A guided workshop focused on mediumship practices and ethical development.",
-    location: "Spiritist Centre, 38 Palmerston Rd, Unley SA",
-    icon: "fas fa-hands-asl-interpreting"
-  }
-])
+# CentreEvent.create!([
+#   {
+#     title: "Intro to Spiritism",
+#     date: "Thursday, April 10, 2025 – 7:00 PM",
+#     description: "An open session to introduce newcomers to Spiritist teachings. All are welcome.",
+#     location: "Spiritist Centre, 38 Palmerston Rd, Unley SA",
+#     icon: "fas fa-calendar-days"
+#   },
+#   {
+#     title: "Mediumship Development Workshop",
+#     date: "Saturday, May 3, 2025 – 10:00 AM to 2:00 PM",
+#     description: "A guided workshop focused on mediumship practices and ethical development.",
+#     location: "Spiritist Centre, 38 Palmerston Rd, Unley SA",
+#     icon: "fas fa-hands-asl-interpreting"
+#   }
+# ])
 
 puts "✅ Events seeded successfully!"
 
