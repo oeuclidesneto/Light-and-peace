@@ -21,112 +21,112 @@ Book.create!([
     current: false,
     title: "Jesus e Atualidade",
     subtitle: "Jesus and Modernity",
-    description: "The relevance of Jesus' thought continues to surprise even the most skeptical scholars of human problems..."
+    description: "A atualidade do pensamento de Jesus surpreende os mais céticos estudiosos da problemática humana, sempre complexa e desafiadora nestes dias. A Veneranda Benfeitora apresenta, neste pequeno grande livro, vinte situações que abordam as ocorrências do cotidiano que aturdem a civilização, buscando respostas da conduta na terapia de Jesus, cujos resultados, obviamente, são a saúde, a paz e a felicidade como experiências ainda não fruídas individualmente e coletivamente pelos homens."
   },
   {
     position: 2,
     current: true,
     title: "O Homem Integral",
     subtitle: "The Integral Man",
-    description: "In this extraordinary essay, Joanna de Ângelis analyzes all the philosophical and psychological aspects..."
+    description: "Neste extraordinário ensaio, a Veneranda Joanna de Ângelis, através da psicografia análise de todos os aspectos filosóficos e psicológicos que ocorrem para a complexa formação do Homem Integral, abordando-os do ponto de vista da Psicologia espírita."
   },
   {
     position: 3,
     current: false,
     title: "Plenitude",
     subtitle: "Plenitude",
-    description: "The spiritual author makes a profound psychological analysis of aspects of suffering..."
+    description: "A Autora espiritual faz uma profunda análise psicológica dos aspectos do sofrimento, propondo a solução espírita, convidativa ao Autodescobrimento, à vivência evangélica e ao comportamento lúcido, requisitos essenciais para a conquista da plenitude."
   },
   {
     position: 4,
     current: false,
     title: "Momentos de Saúde e de Consciência",
     subtitle: "Moments of Health and Consciousness",
-    description: "The conquest of integral health is the goal desired by the human creature..."
+    description: "A conquista da saúde integral é a meta ambicionada pela criatura humana. Conseguir a harmonia entre o equilíbrio orgânico, e o emocional e o psíquico, num quadro geral de bem-estar, constitui um grande desafio para a inteligência humana que, milenarmente, vem recorrendo às mais variadas quão complexas experiências, que têm resultado em admiráveis e valiosas conquistas."
   },
   {
     position: 5,
     current: false,
     title: "O Ser Consciente",
     subtitle: "The Conscious Being",
-    description: "This modest book intends to help in the conquest of consciousness. It studies human problems in light of the Fourth Force in Psychology..."
+    description: "Este modesto livro, que hora trazemos à análise do caro leitor, pretende, sem presunção, auxiliá-lo na conquista da consciência. Não apresenta qualquer técnica nova ou milagrosa. Estuda algumas problemáticas humanas à luz da Quarta Força em Psicologia, colocando uma ponte na direção da Doutrina Espírita, que é portadora de uma visão profunda e integral do ser.\""
   },
   {
     position: 6,
     current: false,
     title: "Autodescobrimento",
     subtitle: "Self-Discovery",
-    description: "We try to build bridges between Humanist and Transpersonal Psychologies with the Spiritist Doctrine..."
+    description: "Ao apresentarmos o nosso livro aos interessados na decifração de si mesmos, tentamos colocar pontes entre os mecanismos das psicologias Humanistas e Transpessoal com a Doutrina Espírita, que as ilumina e completa, assim cooperando de alguma forma com aqueles que se empenham na busca interior, no autodescobrimento.\" - Joanna de Ângelis"
   },
   {
     position: 7,
     current: false,
     title: "Desperte e Seja Feliz",
     subtitle: "Awaken and Be Happy",
-    description: "Contemporary men and women, seduced by ambitions of power and pleasure, remain asleep to spiritual responsibilities..."
+    description: "O homem e a mulher contemporâneos, seduzidos pelas ambições desmedidas do poder que lhes propicia luxo, lazer e gozos, permanecem adormecidos para as graves responsabilidades espirituais. Considerando-se de secundária importância, na vã suposição de que podem remediar a situação íntima a qualquer instante, transferem o pensamento e a emoção para o exterior, com grandes prejuízos de harmonia interna.\" - Joanna de Ângelis"
   },
   {
     position: 8,
     current: false,
     title: "Vida: Desafios e Soluções",
     subtitle: "Life: Challenges and Solutions",
-    description: "Studies of human problems in the light of Spiritist and Transpersonal Psychology to prepare the Spirit for its future destination."
+    description: "A mensageira da Imortalidade oferece, em linguagem simples e acessível, estudos dos problemas humanos à luz da Psicologia Espírita com os subsídios da Psicologia Transpessoal, a fim de minorar os problemas e dificuldades da existência corporal, preparando o Espírito para a sua destinação futura."
   },
   {
     position: 9,
     current: false,
     title: "Amor, Imbatível Amor",
     subtitle: "Love, Unbeatable Love",
-    description: "Examines various psychopathologies and conflicts, building a spiritual bridge to Love as the ultimate healing force."
+    description: "Nesta obra magistral da Série Psicológica, que deu início a uma nova linguagem espírita, a benfeitora Joanna de Ângelis examina várias psicopatologias e conflitos hodiernos, estabelecendo uma ponte espiritual entre as terapias de admiráveis especialistas e o Amor. Nela são abordados temas de profundo interesse para as criaturas, sob várias angulações, que culminam com a visão espírita libertadora e ideal."
   },
   {
     position: 10,
     current: false,
     title: "O Despertar do Espírito",
     subtitle: "The Awakening of the Spirit",
-    description: "A deep study of the existential being across reincarnations and the awakening to spiritual awareness."
+    description: "A benfeitora espiritual Joanna de Ângelis traz, para estudo e meditação, mais uma Obra de sua Série Psicológica. O Despertar do Espírito, como o título diz, é um aprofundado estudo do ser existencial sobrevivente ao túmulo e anterior ao berço, passando pelas diversas etapas das experiências humanas durante a reencarnação."
   },
   {
     position: 11,
     current: false,
     title: "Jesus e o Evangelho",
     subtitle: "Jesus and the Gospel",
-    description: "A depth psychology study of Jesus’ life and message, psychographed by Divaldo Franco."
+    description: "Muito já se disse e se escreveu sobre Jesus e o Evangelho. O nobre Espírito Joanna de Ângelis, através da mediunidade de Divaldo Franco, celebrando os dois mil anos do Seu nascimento, fez um oportuno estudo à luz da psicologia profunda sobre a Sua vida e Sua mensagem na magnífica Obra que estamos oferecendo ao caro Leitor."
   },
   {
     position: 12,
     current: false,
     title: "Triunfo Pessoal",
     subtitle: "Personal Triumph",
-    description: "Shows how every disorder or suffering stems from the Spirit’s internal state, with lessons drawn from Jungian and Spiritist perspectives."
+    description: "Centrando-se na notável contribuição de Jung, a autora introduz o pensamento de experientes psiquiatras, psicanalistas, biólogos, a fim de demonstrar que na raiz de todo e qualquer transtorno, aflição, enfermidade ou sofrimento, encontra-se o Espírito eterno, responsável pelas ocorrências que podem ser utilizadas para seu reequilíbrio, a sua recuperação, a sua paz."
   },
   {
     position: 13,
     current: false,
     title: "Conflitos Existenciais",
     subtitle: "Existential Conflicts",
-    description: "Analyzes modern psychological conflicts under the lens of the Spiritist Doctrine."
+    description: "No estilo inconfundível, o Nobre Espírito Joanna de Ângelis apresenta-nos, Conflitos Existenciais, resumindo 'vários comportamentos perturbadores que se apresentam testes de resistência para o indivíduo humano', enfocados á luz da psicologia, da psicanálise e da psiquiatria, sob o prisma, porém, da Doutrina Espírita."
   },
   {
     position: 14,
     current: false,
     title: "Encontro com a Paz e a Saúde",
     subtitle: "Meeting with Peace and Health",
-    description: "Explores feelings and inner transformations using Transpersonal Psychology and Spiritist principles."
+    description: "Numa admirável lucidez e argumentação ímpar, pela psicografia de Divaldo Franco, a Veneranda Joanna de Ângelis reitera inequivocamente os seus profundos conhecimentos de Psicologia Transpessoal, desfiando um rosário de nuanças da alma humana, dissecando-lhe os sentimentos e as profundas transformações pelas quais passa o ser, desde os primórdios da sua existência na Terra, até os dias atuais."
   },
   {
     position: 15,
     current: false,
     title: "Em Busca da Verdade",
     subtitle: "In Search of Truth",
-    description: "Guides the reader toward psychological maturity and spiritual evolution through deep inner work."
+    description: "A venerada Joanna de Ângelis oferece-nos EM BUSCA DA VERDADE, mais uma extraordinária Obra com profundas lições que nos levam por diretrizes seguras, para alcançarmos a maturidade psicológica - de que tanto necessitamos - a fim de libertar o nosso Espírito das densas camadas que dificultam a sua longa jornada na difícil marcha da evolução."
   },
   {
     position: 16,
     current: false,
     title: "Psicologia da Gratidão",
     subtitle: "Psychology of Gratitude",
-    description: "Gratitude becomes a tool for psychological and spiritual health — especially in a world of moral indifference."
+    description: "A PSICOLOGIA DA GRATIDÃO torna-se um instrumento hábil no eixo ego-self, devendo ser vivenciada em todos os momentos da existência corporal como roteiro de segurança para a conquista da sua realidade. Filha do amadurecimento psicológico, enriquece de paz e de alegria todo aquele que a cultiva."
   }
 ])
 
