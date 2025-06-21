@@ -23,11 +23,20 @@
         <div class="prose max-w-none text-gray-700">
           <p>Our Spiritist library will soon be fully integrated into this website, offering a digital catalog, book reservations, and management tools directly accessible online.</p>
           <p>For now, explore high-quality Spiritist literature through:</p>
-          <ul class="list-disc ml-5 space-y-1">
-            <li><a href="https://kardecpedia.com/" target="_blank" class="text-blue-600 hover:underline">Kardecpedia</a></li>
-            <li><a href="https://ssbaltimore.org/e-books" target="_blank" class="text-blue-600 hover:underline">SSBaltimore E-books</a></li>
-            <li><a href="https://www.bvespirita.net/" target="_blank" class="text-blue-600 hover:underline">BV Espírita</a></li>
-          </ul>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <% [
+              { name: "Kardecpedia", url: "https://kardecpedia.com/", icon: "fa-book-open" },
+              { name: "SSBaltimore E-books", url: "https://ssbaltimore.org/e-books", icon: "fa-book" },
+              { name: "BV Espírita", url: "https://www.bvespirita.net/", icon: "fa-globe" }
+            ].each do |resource| %>
+              <a href="<%= resource[:url] %>" target="_blank" class="border p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                <i class="fas <%= resource[:icon] %> text-blue-500 text-xl mb-2"></i>
+                <h3 class="font-medium text-gray-800"><%= resource[:name] %></h3>
+              </a>
+            <% end %>
+          </div>
+
           <p>These collections offer hundreds of free Spiritist works. Stay tuned as we launch the full system!</p>
         </div>
       <% else %>
@@ -83,10 +92,40 @@
         </div>
       <% end %>
 
+      <%# Lecture Page: YouTube Section %>
+      <% if @service.title.downcase == "lecture" %>
+        <div class="mt-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
+          <h2 class="text-xl font-bold flex items-center justify-center text-gray-800 mb-4">
+            <i class="fab fa-youtube mr-2 text-red-500"></i>
+            Our Lectures
+          </h2>
+
+          <!-- Embedded Latest Lecture Playlist -->
+          <div class="aspect-w-16 aspect-h-9 mb-4">
+            <iframe
+              src="https://www.youtube.com/embed/videoseries?list=PL3ndO6KXXvx8Sz52sxXIJ-IgcQt6HJAR4"
+              class="w-full h-64 rounded-lg shadow-sm"
+              frameborder="0"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <p class="text-center text-gray-700">
+            Watch all lectures on our
+            <a
+              href="https://www.youtube.com/@LightandPeaceSpiritism"
+              target="_blank"
+              class="text-blue-600 hover:underline font-medium"
+            >
+              YouTube channel <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+            </a>.
+          </p>
+        </div>
+      <% end %>
+
+
       <div class="text-center mt-6">
-        <%= link_to services_path, class: "text-blue-600 hover:text-blue-700 font-semibold" do %>
-          Back to Services
-        <% end %>
+        <%= link_to "← Back to Services", services_path, class: "inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 font-medium" %>
       </div>
     </div>
   </div>
