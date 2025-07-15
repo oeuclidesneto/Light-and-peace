@@ -1,0 +1,161 @@
+
+// app/assets/stylesheets/application.scss
+@import "services/children_youth";
+.children-youth-service {
+  $yellow-accent: #FFD700;
+  $yellow-light: #FFF9E6;
+  $blue-accent: #3B82F6;
+  $green-accent: #10B981;
+
+  .header {
+    background: linear-gradient(to right, #f8fafc, white);
+    border-bottom: 1px solid #e2e8f0;
+    padding: 2rem;
+
+    .icon {
+      color: $yellow-accent;
+      font-size: 2.5rem;
+    }
+
+    h1 {
+      color: #1e293b;
+      font-weight: 700;
+    }
+  }
+
+  .content-section {
+    padding: 2rem;
+
+    .main-content {
+      p {
+        line-height: 1.75;
+        color: #334155;
+      }
+    }
+
+    .benefits-card {
+      background: $yellow-light;
+      border-left: 4px solid $yellow-accent;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0.5rem;
+
+      h3 {
+        display: flex;
+        align-items: center;
+        color: #854d0e;
+        font-weight: 600;
+
+        &::before {
+          content: "✓";
+          margin-right: 0.5rem;
+          color: $yellow-accent;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+          padding: 0.25rem 0;
+          display: flex;
+          align-items: flex-start;
+
+          &::before {
+            content: "•";
+            color: $yellow-accent;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+
+    .activities-grid {
+      display: grid;
+      gap: 1rem;
+      margin: 2rem 0;
+
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .activity-card {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        transition: all 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .activity-icon {
+          width: 3rem;
+          height: 3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          margin-bottom: 1rem;
+
+          &.storytelling {
+            background: rgba($blue-accent, 0.1);
+            color: $blue-accent;
+          }
+
+          &.games {
+            background: rgba($green-accent, 0.1);
+            color: $green-accent;
+          }
+
+          &.discussions {
+            background: rgba($purple-accent, 0.1);
+            color: $purple-accent;
+          }
+        }
+
+        h3 {
+          font-weight: 600;
+          color: #1e293b;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          color: #64748b;
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+
+  .footer-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background: #f1f5f9;
+      border-radius: 0.5rem;
+      color: #334155;
+      font-weight: 500;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #e2e8f0;
+      }
+
+      svg {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
