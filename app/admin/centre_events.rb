@@ -1,7 +1,8 @@
 ActiveAdmin.register CentreEvent do
-  menu label: "📅 Centre Events", priority: 3
+  menu label: "📅 Events", priority: 3
+  config.comments = false
 
-  permit_params :title, :date, :description, :location, :icon
+  permit_params :title, :date, :description, :location, :icon, :event_date, :event_time
 
   ICON_OPTIONS = {
     "Calendar" => "fa-solid fa-calendar-days",
@@ -9,39 +10,50 @@ ActiveAdmin.register CentreEvent do
     "Microphone" => "fa-solid fa-microphone",
     "Book" => "fa-solid fa-book",
     "Star & Crescent" => "fa-solid fa-star-and-crescent"
-  }
+  }.freeze
 
   form do |f|
     f.inputs "Event Details" do
-      f.input :title
-      f.input :description
-      f.input :location
-      f.input :icon, input_html: { value: 'fa-solid fa-calendar-days' }
+  f.input :title
+  f.input :description
+  f.input :location
 
-      # Separate date and time fields
-      f.input :event_date, as: :string, label: "Date (dd/mm/yyyy)", input_html: { value: f.object.date&.strftime("%d/%m/%Y") }
-      f.input :event_time, as: :string, label: "Time (HH:MM)", input_html: { value: f.object.date&.strftime("%H:%M") }
-    end
+  f.input :icon, as: :hidden, input_html: { value: "fa-solid fa-calendar-days" }
+
+  f.input :event_date, as: :string, label: "Date",
+          input_html: {
+            type: "date",
+            value: f.object.date&.strftime("%Y-%m-%d")
+          }
+
+  f.input :event_time, as: :string, label: "Time (24h)",
+          input_html: {
+            type: "time",
+            value: f.object.date&.strftime("%H:%M"),
+            step: 60,
+            min: "00:00",
+            max: "23:59"
+          }
+end
     f.actions
   end
 
   controller do
-    def update
-      params[:centre_event][:date] = parse_datetime(params[:centre_event].delete(:event_date), params[:centre_event].delete(:event_time))
-      super
-    end
-
-    def create
-      params[:centre_event][:date] = parse_datetime(params[:centre_event].delete(:event_date), params[:centre_event].delete(:event_time))
-      super
-    end
+    before_action :combine_datetime_params, only: [:create, :update]
 
     private
 
+    def combine_datetime_params
+      date = params[:centre_event].delete(:event_date)
+      time = params[:centre_event].delete(:event_time)
+      params[:centre_event][:date] = parse_datetime(date, time)
+      params[:centre_event][:icon] ||= "fa-solid fa-calendar-days"
+    end
+
     def parse_datetime(date_str, time_str)
       return nil if date_str.blank? || time_str.blank?
-      Time.strptime("#{date_str} #{time_str}", "%d/%m/%Y %H:%M")
-    rescue
+      DateTime.strptime("#{date_str} #{time_str}", "%Y-%m-%d %H:%M")
+    rescue ArgumentError
       nil
     end
   end
