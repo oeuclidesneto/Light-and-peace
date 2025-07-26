@@ -9,15 +9,19 @@ Rails.application.routes.draw do
   get "/contact", to: "contacts#new"  # Contact Form Page
   post "/contact", to: "contacts#create"  # Contact Form Submission
   get "/schedule", to: "pages#schedule"
-  get "/services", to: "services#index"
   get "/thank-you", to: "contacts#thank_you"
   get 'events', to: 'events#index'
   get 'quarterly-reports', to: 'quarterly_reports#index', as: :quarterly_reports
   get 'quarterly-reports/:slug', to: 'quarterly_reports#show', as: :quarterly_report
 
-
-  resources :services, only: [:index, :show]
-
+  get "/services", to: "services#index"
+  get "/services/gospel-at-home", to: "services#gospel_at_home"
+  get "/services/study-group", to: "services#study_group"
+  get "/services/fraternal-assistance", to: "services#fraternal_assistance"
+  get "/services/children-and-youth-group", to: "services#children_and_youth_group"
+  get "/services/energy-healing", to: "services#energy_healing"
+  get "/services/library", to: "services#library"
+  get "/services/lecture", to: "services#lecture"
 
 
   # Devise Authentication Routes
