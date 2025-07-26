@@ -173,3 +173,11 @@ $primary-color: #4f8c9b; // Custom primary color
   transform: scale(1.1);
 }
 
+/* Ensure FA icons are visible */
+[class^="fa-"], [class*=" fa-"] {
+  display: inline-block !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-rendering: auto !important;
+  -webkit-font-smoothing: antialiased !important;
+}

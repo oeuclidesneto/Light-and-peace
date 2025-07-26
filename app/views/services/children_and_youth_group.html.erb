@@ -1,0 +1,94 @@
+<div class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+  <div class="bg-white shadow-xl rounded-2xl overflow-hidden">
+    <!-- Header Section -->
+    <div class="bg-gradient-to-r from-yellow-50 to-white px-8 py-6 border-b border-gray-100">
+      <div class="flex items-center space-x-4">
+        <i class="fas fa-users text-4xl text-yellow-600"></i>
+        <h1 class="text-3xl font-bold text-gray-800">Children's & Youth Group</h1>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="p-8 pb-12">
+      <!-- Description Section -->
+      <div class="prose max-w-none text-gray-700 mb-8">
+        <p>Our Children & Youth Group provides spiritual education in a fun, engaging environment. We help young minds develop moral values through age-appropriate activities.</p>
+      </div>
+
+      <!-- Activities Section -->
+      <div class="mt-6 bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-300">
+        <h3 class="font-semibold text-yellow-800 flex items-center">
+          <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>
+          Weekly Meetings
+        </h3>
+        <p class="mt-2 text-gray-700">Engaging activities designed for different developmental stages</p>
+
+        <div class="mt-4">
+          <h4 class="font-medium text-gray-700 mb-2">Benefits:</h4>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-yellow-500 mr-2 mt-1"></i>
+              <span>Safe, welcoming environment</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-yellow-500 mr-2 mt-1"></i>
+              <span>Parental involvement encouraged</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-yellow-500 mr-2 mt-1"></i>
+              <span>Lifelong spiritual tools</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Activity Examples -->
+      <div class="mt-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+          <i class="fas fa-gamepad mr-2 text-yellow-500"></i>
+          Activity Examples
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="bg-blue-50 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-3">
+              <i class="fas fa-book text-blue-500"></i>
+            </div>
+            <h3 class="font-medium text-gray-800">Storytelling</h3>
+            <p class="text-gray-600 text-sm mt-1">Moral lessons through engaging stories</p>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="bg-green-50 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-3">
+              <i class="fas fa-puzzle-piece text-green-500"></i>
+            </div>
+            <h3 class="font-medium text-gray-800">Interactive Games</h3>
+            <p class="text-gray-600 text-sm mt-1">Learning values through play</p>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="bg-purple-50 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-3">
+              <i class="fas fa-comments text-purple-500"></i>
+            </div>
+            <h3 class="font-medium text-gray-800">Group Discussions</h3>
+            <p class="text-gray-600 text-sm mt-1">Sharing perspectives on spiritual topics</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meeting Time Section -->
+      <div class="mt-8 text-center text-lg text-gray-700">
+        <i class="fas fa-clock text-yellow-500 mr-2"></i>
+        Meets every Monday at 7:15 PM
+      </div>
+
+      <!-- Back Button -->
+      <div class="text-center mt-10">
+        <%= link_to services_path, class: "inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 font-medium transition-colors" do %>
+          <i class="fas fa-arrow-left mr-2"></i>
+          Back to Services
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
