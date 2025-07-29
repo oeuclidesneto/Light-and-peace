@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'donations/index'
   get 'quarterly_reports/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   get "/schedule", to: "pages#schedule"
   get "/thank-you", to: "contacts#thank_you"
   get 'events', to: 'events#index'
+  get '/donate', to: 'donations#index', as: :donations
   get 'quarterly-reports', to: 'quarterly_reports#index', as: :quarterly_reports
   get 'quarterly-reports/:slug', to: 'quarterly_reports#show', as: :quarterly_report
 

@@ -12,7 +12,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
  <!-- FontAwesome CSS (for <i class="fas ..."> support) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <!-- Replace the Tailwind CDN with this local fallback -->
   <% if Rails.env.development? %>
@@ -49,30 +51,39 @@
 
       <!-- Centered Desktop Menu -->
       <div class="hidden md:flex flex-1 justify-center flex-wrap">
-        <ul class="flex space-x-6">
+        <ul class="flex space-x-4">
           <li><%= link_to 'Home', root_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(root_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
           <li><%= link_to 'About', about_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(about_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
           <li><%= link_to 'Services', services_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(services_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
           <li><%= link_to 'Schedule', schedule_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(schedule_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
           <li><%= link_to 'Events', events_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(events_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
           <li><%= link_to 'Transparency', quarterly_reports_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(quarterly_reports_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
+          <li>
+            <%= link_to 'Donate', donations_path, class: "px-4 py-2 rounded-md font-bold transition duration-300 #{current_page?(donations_path) ? 'bg-blue-400 text-white shadow-md' : 'bg-blue-500 text-white hover:bg-blue-600 shadow-md'}" %>
+          </li>
           <li><%= link_to 'Contact', contact_path, class: "px-3 py-2 rounded-md font-bold transition duration-300 #{current_page?(contact_path) ? 'bg-blue-300 text-blue-900' : 'text-gray-700 hover:bg-blue-300 hover:text-blue-900'}" %></li>
         </ul>
       </div>
 
       <!-- Mobile Menu Button (Right) -->
-      <button class="text-gray-700 md:hidden font-bold" id="menu-button">☰</button>
+      <button class="text-gray-700 md:hidden font-bold" id="menu-button" aria-expanded="false" aria-controls="mobile-menu">
+        ☰
+        <span class="sr-only">Menu</span>
+      </button>
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <ul class="hidden flex-col bg-blue-300 text-gray-800 p-4 md:hidden items-center transition-all duration-300" id="mobile-menu">
-      <li><%= link_to 'Home', root_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(root_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
-      <li><%= link_to 'About', about_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(about_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
-      <li><%= link_to 'Services', services_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(services_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
-      <li><%= link_to 'Schedule', schedule_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(schedule_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
-      <li><%= link_to 'Events', events_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(events_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
-      <li><%= link_to 'Transparency', quarterly_reports_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(quarterly_reports_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
-      <li><%= link_to 'Contact', contact_path, class: "block px-3 py-2 rounded-md font-bold text-center transition duration-300 #{current_page?(contact_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+    <ul class="hidden flex-col bg-blue-300 text-gray-800 p-4 md:hidden items-center space-y-2 transition-all duration-300" id="mobile-menu">
+      <li><%= link_to 'Home', root_path, class: "block w-full px-4 py-3 rounded-md font-bold text-center transition duration-300 #{current_page?(root_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+      <li><%= link_to 'About', about_path, class: "block w-full px-4 py-3 rounded-md font-bold text-center transition duration-300 #{current_page?(about_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+      <li><%= link_to 'Services', services_path, class: "block w-full px-4 py-3 rounded-md font-bold text-center transition duration-300 #{current_page?(services_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+      <li><%= link_to 'Schedule', schedule_path, class: "block w-full px-4 py-3 rounded-md font-bold text-center transition duration-300 #{current_page?(schedule_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+      <li><%= link_to 'Events', events_path, class: "block w-full px-4 py-3 rounded-md font-bold text-center transition duration-300 #{current_page?(events_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+      <li><%= link_to 'Transparency', quarterly_reports_path, class: "block w-full px-4 py-3 rounded-md font-bold text-center transition duration-300 #{current_page?(quarterly_reports_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
+      <li>
+        <%= link_to 'Donate', donations_path, class: "block w-full px-4 py-3 rounded-md font-bold text-center transition duration-300 bg-blue-500 text-white hover:bg-blue-600 shadow-md" %>
+      </li>
+      <li><%= link_to 'Contact', contact_path, class: "block w-full px-4 py-3 rounded-md font-bold text-center transition duration-300 #{current_page?(contact_path) ? 'bg-blue-400 text-blue-900' : 'hover:bg-blue-400 hover:text-blue-900'}" %></li>
     </ul>
   </nav>
 
