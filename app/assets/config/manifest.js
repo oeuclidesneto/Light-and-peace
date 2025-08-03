@@ -4,3 +4,5 @@
 //= link_tree ../../../vendor/javascript .js
 //= link The-Gospel-According-to-Spiritism-Allan-Kardec.pdf
 //= link O-Evangelho-Segundo-o-Espiritismo-Allan-Kardec.pdf
+//= link Gospel-At-Home-Guide.pdf
+//= link Evangelho-No-Lar-Guide.pdf
