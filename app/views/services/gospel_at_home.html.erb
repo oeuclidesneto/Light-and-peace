@@ -18,7 +18,60 @@
 
         <div class="mt-6 p-4 bg-orange-50 border-l-4 border-orange-400 rounded-r-lg">
           <p class="text-gray-700 italic">
-            "This moment of study and prayer creates an atmosphere of peace and balance, dispelling negative energies and fostering the moral development of participants."
+            "At least once a week, gather your family and compliment them with the joy of Spiritism, implementing the Gospel practice so that Jesus' teachings can be an effective route of love and wisdom in your home…"
+          </p>
+        </div>
+
+        <p class="text-lg leading-relaxed mt-6">
+          Strengthen your spiritual connection and bring peace to your home. By dedicating time to study and reflection, we create a peaceful atmosphere where Jesus' teachings can guide our daily lives toward higher purpose and harmony.
+        </p>
+      </div>
+
+      <!-- Quick Guide Section -->
+      <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm mb-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+          <i class="fas fa-compass mr-2 text-orange-500"></i>
+          Quick Guide
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <span class="bg-orange-100 text-orange-800 font-bold rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
+                <span>Choose a consistent day and time for your gathering. All are welcome - family, friends, or even individual practice.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="bg-orange-100 text-orange-800 font-bold rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
+                <span>Prepare water to be blessed during the meeting.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="bg-orange-100 text-orange-800 font-bold rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
+                <span>Begin with a spontaneous prayer to open hearts to reflection.</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <span class="bg-orange-100 text-orange-800 font-bold rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
+                <span>Read and reflect on a passage from The Gospel According to Spiritism.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="bg-orange-100 text-orange-800 font-bold rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">5</span>
+                <span>Share practical applications of the teachings in daily life.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="bg-orange-100 text-orange-800 font-bold rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">6</span>
+                <span>Conclude with a prayer of gratitude, keeping the entire gathering to about 30 minutes.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 bg-orange-50 rounded-lg">
+          <p class="text-gray-700">
+            <strong>Note:</strong> The Gospel at Home is not a mediumistic meeting but a simple gathering focused on moral and spiritual enlightenment.
           </p>
         </div>
       </div>
@@ -34,7 +87,7 @@
           <ul class="space-y-2">
             <li class="flex items-start">
               <i class="fas fa-check-circle text-orange-500 mr-2 mt-1"></i>
-              <span>30-40 minute spiritual session</span>
+              <span>Maximum of 30 minutes spiritual session</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-check-circle text-orange-500 mr-2 mt-1"></i>
@@ -128,6 +181,52 @@
                       class: "inline-flex items-center px-4 py-2 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 rounded-lg text-sm font-medium transition-colors" do %>
                   <i class="fas fa-external-link-alt mr-2"></i> View Online
                 <% end %>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guide Downloads -->
+          <div class="pt-8 border-t border-gray-100">
+            <h3 class="font-bold text-lg text-gray-800 mb-4">Practical Guides</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- English Guide -->
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="flex items-start">
+                  <div class="bg-orange-100 p-3 rounded-lg mr-4">
+                    <i class="fas fa-book-open text-orange-600 text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800">Gospel at Home Guide</h4>
+                    <p class="text-sm text-gray-600 mb-3">Step-by-step instructions for your spiritual practice</p>
+                    <div class="flex gap-2">
+                      <%= link_to asset_path("Gospel-At-Home-Guide.pdf"),
+                            download: "Gospel-At-Home-Guide.pdf",
+                            class: "inline-flex items-center px-3 py-1 bg-orange-600 hover:bg-orange-700 text-white rounded-lg text-xs font-medium transition-colors" do %>
+                        <i class="fas fa-download mr-1"></i> Download
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Portuguese Guide -->
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="flex items-start">
+                  <div class="bg-orange-100 p-3 rounded-lg mr-4">
+                    <i class="fas fa-book-open text-orange-600 text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800">Guia do Evangelho no Lar</h4>
+                    <p class="text-sm text-gray-600 mb-3">Instruções passo-a-passo para sua prática espiritual</p>
+                    <div class="flex gap-2">
+                      <%= link_to asset_path("Evangelho-No-Lar-Guide.pdf"),
+                            download: "Evangelho-No-Lar-Guide.pdf",
+                            class: "inline-flex items-center px-3 py-1 bg-orange-600 hover:bg-orange-700 text-white rounded-lg text-xs font-medium transition-colors" do %>
+                        <i class="fas fa-download mr-1"></i> Download
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
