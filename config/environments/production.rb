@@ -58,14 +58,15 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              "smtp.gmail.com",
-  port:                 587,
-  domain:               "gmail.com",
-  user_name:            ENV["GMAIL_USERNAME"],
-  password:             ENV["GMAIL_APP_PASSWORD"],
-  authentication:       :plain,
-  enable_starttls_auto: true
-}
+    address:              "smtp.zoho.com.au",
+    port:                 587,
+    domain:               "lightandpeacespiritism.org",
+    user_name:            ENV["ZOHO_USERNAME"], # your Zoho email address
+    password:             ENV["ZOHO_PASSWORD"], # your Zoho password or app password
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
+
 
   # ---------------------------------------------
 

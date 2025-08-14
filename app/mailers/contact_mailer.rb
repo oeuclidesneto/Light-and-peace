@@ -1,11 +1,15 @@
+# app/mailers/contact_mailer.rb
 class ContactMailer < ApplicationMailer
-  default to: "euclidesneto777@gmail.com", from: "noreply@lightandpeace.com"
+  default from: ENV.fetch("MAILER_SENDER", "contact@lightandpeacespiritism.org")
 
   def contact_email(name, email, message)
     @name = name
     @message = message
-    @email = email
 
-    mail(subject: "Solicitação de Contato - Light & Peace")
+    mail(
+      to: ENV.fetch("CONTACT_RECIPIENT", "contact@lightandpeacespiritism.org"),
+      subject: "Solicitação de Contato - Light & Peace",
+      reply_to: email
+    )
   end
 end
