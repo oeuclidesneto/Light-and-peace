@@ -58,14 +58,16 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              "smtp.sendgrid.net",
+    address:              "smtp.zoho.com.au",
     port:                 587,
-    domain:               ENV.fetch("MAILER_DOMAIN", "light-and-peace.herokuapp.com"),
-    user_name:            "apikey", # literal string for SendGrid API keys
-    password:             ENV.fetch("SENDGRID_API_KEY"),
+    domain:               "lightandpeacespiritism.org",
+    user_name:            ENV["ZOHO_USERNAME"], # your Zoho email address
+    password:             ENV["ZOHO_PASSWORD"], # your Zoho password or app password
     authentication:       :plain,
     enable_starttls_auto: true
   }
+
+
   # ---------------------------------------------
 
   config.i18n.fallbacks = true

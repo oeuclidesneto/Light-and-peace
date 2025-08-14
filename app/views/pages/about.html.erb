@@ -56,36 +56,38 @@
 
 </section>
   <!-- Affiliations Section -->
-  <section class="bg-white p-8 rounded-2xl shadow-md">
-    <div class="text-center mb-10">
-      <h2 class="text-3xl font-bold text-blue-950 mb-4">Our Affiliations</h2>
-      <p class="text-gray-700 max-w-2xl mx-auto">
-        Light & Peace is proudly affiliated with these Spiritist federations that support the development and dissemination of the Spiritist Doctrine.
+<!-- Affiliations Section -->
+<section class="bg-white p-8 rounded-2xl shadow-md">
+  <div class="text-center mb-10">
+    <h2 class="text-3xl font-bold text-blue-950 mb-4">Our Affiliations</h2>
+    <p class="text-gray-700 max-w-2xl mx-auto">
+      Light & Peace is affiliated with the Australian Spiritist Federation (ASF), which in turn is affiliated with the Federação Espírita Brasileira (FEB). These organizations support the development and dissemination of the Spiritist Doctrine.
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-8">
+    <!-- ASF -->
+    <a href="https://www.australianspiritistfederation.org.au/" target="_blank"
+       class="group flex flex-col items-center text-center border border-blue-100 rounded-xl p-8 shadow-sm hover:shadow-md transition hover:border-blue-300 bg-blue-50/30">
+      <%= image_tag 'asf-logo.png', alt: 'ASF Logo', class: 'mx-auto h-20 mb-6 group-hover:scale-105 transition-transform' %>
+      <h3 class="text-xl font-semibold text-blue-900 mb-3">Australian Spiritist Federation (ASF)</h3>
+      <p class="text-gray-600">
+        ASF connects and supports Spiritist centers across Australia, including Light & Peace, promoting spiritual study and events aligned with Kardec's teachings.
       </p>
-    </div>
+    </a>
 
-    <div class="grid md:grid-cols-2 gap-8">
-      <!-- FEB -->
-      <a href="https://www.febnet.org.br/" target="_blank"
-         class="group flex flex-col items-center text-center border border-blue-100 rounded-xl p-8 shadow-sm hover:shadow-md transition hover:border-blue-300 bg-blue-50/30">
-        <%= image_tag 'feb-logo.png', alt: 'FEB Logo', class: 'mx-auto h-20 mb-6 group-hover:scale-105 transition-transform' %>
-        <h3 class="text-xl font-semibold text-blue-900 mb-3">Federação Espírita Brasileira (FEB)</h3>
-        <p class="text-gray-600">
-          Based in Brazil, FEB is the main Spiritist organization, active since 1884 in spreading the teachings of Spiritism across the world.
-        </p>
-      </a>
+    <!-- FEB -->
+    <a href="https://www.febnet.org.br/" target="_blank"
+       class="group flex flex-col items-center text-center border border-blue-100 rounded-xl p-8 shadow-sm hover:shadow-md transition hover:border-blue-300 bg-blue-50/30">
+      <%= image_tag 'feb-logo.png', alt: 'FEB Logo', class: 'mx-auto h-20 mb-6 group-hover:scale-105 transition-transform' %>
+      <h3 class="text-xl font-semibold text-blue-900 mb-3">Federação Espírita Brasileira (FEB)</h3>
+      <p class="text-gray-600">
+        Based in Brazil, FEB is the main Spiritist organization, active since 1884 in spreading the teachings of Spiritism across the world.
+      </p>
+    </a>
+  </div>
+</section>
 
-      <!-- ASF -->
-      <a href="https://www.australianspiritistfederation.org.au/" target="_blank"
-         class="group flex flex-col items-center text-center border border-blue-100 rounded-xl p-8 shadow-sm hover:shadow-md transition hover:border-blue-300 bg-blue-50/30">
-        <%= image_tag 'asf-logo.png', alt: 'ASF Logo', class: 'mx-auto h-20 mb-6 group-hover:scale-105 transition-transform' %>
-        <h3 class="text-xl font-semibold text-blue-900 mb-3">Australian Spiritist Federation (ASF)</h3>
-        <p class="text-gray-600">
-          ASF connects and supports Spiritist centers across Australia, promoting spiritual study and events aligned with Kardec's teachings.
-        </p>
-      </a>
-    </div>
-  </section>
 
   <!-- What is Spiritism Section -->
   <section class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl shadow-md">

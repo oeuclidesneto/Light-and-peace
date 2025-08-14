@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: ENV.fetch("MAILER_SENDER", "euclidesneto777@gmail.com")
+  default from: "contact@lightandpeacespiritism.org"
   layout "mailer"
 end
