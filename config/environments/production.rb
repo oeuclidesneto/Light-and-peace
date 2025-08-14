@@ -6,6 +6,8 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
+  # Redirect all HTTP → HTTPS and set secure cookies
+  config.force_ssl = true
 
   # Eager load code on boot.
   config.eager_load = true
