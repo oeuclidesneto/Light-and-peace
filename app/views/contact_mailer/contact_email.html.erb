@@ -1,8 +1,13 @@
 <h1>New Contact Form Submission</h1>
 
 <p><strong>Name:</strong> <%= @name %></p>
-<p><strong>Email:</strong> <%= @email %></p>
-<p><strong>Message:</strong></p>
-<p><%= @message %></p>
+<p><strong>Email:</strong> <a href="mailto:<%= @email %>"><%= @email %></a></p>
 
-<p>Sent from the Contact Page of Light and Peace.</p>
+<hr>
+
+<p><strong>Message:</strong></p>
+<p><%= simple_format(@message) %></p>
+
+<p style="margin-top: 20px; font-size: 0.9em; color: #555;">
+  Sent from the Contact Page of the Light & Peace website.
+</p>
