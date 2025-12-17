@@ -1,17 +1,59 @@
 require 'csv'
 
-# Import speeches from CSV
+# --- Import speeches from CSV (safe updater) ---
 csv_file = Rails.root.join('db', 'speeches.csv')
 
-CSV.foreach(csv_file, headers: true) do |row|
-  Speech.create!(
-    theme: row['Theme'],
-    speaker: row['Speaker'],
-    date: DateTime.parse(row['Date'])
-  )
+if File.exist?(csv_file)
+  updated = 0
+  created = 0
+  skipped = 0
+
+  CSV.foreach(csv_file, headers: true) do |row|
+    date_str = row['Date'].to_s.strip
+    speaker  = row['Speaker'].to_s.strip
+    theme    = row['Theme'].to_s.strip
+
+    # Skip blank rows
+    if date_str.empty?
+      skipped += 1
+      next
+    end
+
+    # Parse date safely
+    begin
+      date = Date.strptime(date_str, "%d/%m/%Y")
+    rescue ArgumentError
+      puts "⚠️  Invalid date format: #{date_str.inspect} — skipping"
+      skipped += 1
+      next
+    end
+
+    # Find existing speech by date or init new
+    speech = Speech.find_or_initialize_by(date: date)
+    was_new = speech.new_record?
+
+    speech.assign_attributes(
+      speaker: speaker.presence,
+      theme: theme.presence
+    )
+
+    if was_new || speech.changed?
+      speech.save!
+      if was_new
+        created += 1
+        puts "➕ Created: #{date} — #{speech.speaker} — #{speech.theme}"
+      else
+        updated += 1
+        puts "✅ Updated: #{date} — #{speech.speaker} — #{speech.theme}"
+      end
+    end
+  end
+
+  puts "📅 Speeches import finished. Updated: #{updated}, Created: #{created}, Skipped: #{skipped}"
+else
+  puts "⚠️  speeches.csv not found at #{csv_file}"
 end
 
-puts "✅ Speeches imported successfully!"
 
 Book.destroy_all
 
