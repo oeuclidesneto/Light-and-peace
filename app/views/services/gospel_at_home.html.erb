@@ -25,6 +25,32 @@
         <p class="text-lg leading-relaxed mt-6">
           Strengthen your spiritual connection and bring peace to your home. By dedicating time to study and reflection, we create a peaceful atmosphere where Jesus' teachings can guide our daily lives toward higher purpose and harmony.
         </p>
+
+        <!-- Small coherence line (no extra details) -->
+        <p class="text-lg leading-relaxed mt-4">
+          You may practice Gospel at Home individually or with family, and you are also welcome to join our online group meeting.
+        </p>
+      </div>
+
+      <!-- Online Meeting Link (ONLY LINK - no event content) -->
+      <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm mb-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+          <i class="fas fa-video mr-2 text-orange-500"></i>
+          Gospel at Home Online
+        </h2>
+
+        <p class="text-gray-700 mb-4">
+          We also offer an online Gospel at Home gathering. Click below for schedule details and access link.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <%= link_to "https://calendar.app.google/tsm8nm1CtXob3Krv5",
+                target: "_blank",
+                rel: "noopener",
+                class: "inline-flex items-center px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg text-sm font-medium transition-colors" do %>
+            <i class="fas fa-calendar-alt mr-2"></i> View Online Meeting Details
+          <% end %>
+        </div>
       </div>
 
       <!-- Quick Guide Section -->
@@ -91,7 +117,7 @@
             </li>
             <li class="flex items-start">
               <i class="fas fa-check-circle text-orange-500 mr-2 mt-1"></i>
-              <span>Conducted in your home</span>
+              <span>Can be practiced at home or online</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-check-circle text-orange-500 mr-2 mt-1"></i>
