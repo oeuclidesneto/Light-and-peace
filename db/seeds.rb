@@ -7,6 +7,7 @@ if File.exist?(csv_file)
   updated = 0
   created = 0
   skipped = 0
+  imported_dates = []
 
   CSV.foreach(csv_file, headers: true) do |row|
     date_str = row['Date'].to_s.strip
@@ -29,7 +30,9 @@ if File.exist?(csv_file)
     end
 
     # Find existing speech by date or init new
-    speech = Speech.find_or_initialize_by(date: date)
+    speech_date = Time.zone.local(date.year, date.month, date.day)
+    imported_dates << speech_date.to_date
+    speech = Speech.where(date: speech_date.all_day).first_or_initialize
     was_new = speech.new_record?
 
     speech.assign_attributes(
@@ -49,7 +52,12 @@ if File.exist?(csv_file)
     end
   end
 
-  puts "📅 Speeches import finished. Updated: #{updated}, Created: #{created}, Skipped: #{skipped}"
+  removed = Speech.where.not(
+    id: Speech.all.select { |speech| imported_dates.include?(speech.date.in_time_zone.to_date) }.map(&:id)
+  ).destroy_all.count
+
+  puts "🗑️  Removed: #{removed}"
+  puts "📅 Speeches import finished. Updated: #{updated}, Created: #{created}, Removed: #{removed}, Skipped: #{skipped}"
 else
   puts "⚠️  speeches.csv not found at #{csv_file}"
 end
