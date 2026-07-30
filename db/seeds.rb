@@ -274,7 +274,14 @@ CentreEvent.destroy_all
 
 puts "✅ Events seeded successfully!"
 
-AdminUser.find_or_create_by!(email: 'admin@example.com') do |admin|
-  admin.password = 'password'
-  admin.password_confirmation = 'password'
-end if Rails.env.development?
+if Rails.env.development?
+  admin_email = ENV.fetch('ADMIN_EMAIL', 'admin@example.com')
+  admin_password = ENV.fetch('ADMIN_PASSWORD', 'Admin12345')
+
+  admin = AdminUser.find_or_initialize_by(email: admin_email)
+  admin.password = admin_password
+  admin.password_confirmation = admin_password
+  admin.save!
+
+  puts "🔐 Development admin ready: #{admin_email}"
+end
