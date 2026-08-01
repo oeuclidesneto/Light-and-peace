@@ -10,6 +10,46 @@ ActiveAdmin.register Speech do
   filter :speaker
   filter :theme
 
+  action_item :import_spreadsheet, only: :index do
+    link_to "Import Spreadsheet", import_spreadsheet_admin_speeches_path
+  end
+
+  collection_action :import_spreadsheet, method: [:get, :post] do
+    if request.get?
+      render "admin/speeches/import_spreadsheet"
+      next
+    end
+
+    spreadsheet = params[:spreadsheet]
+
+    if spreadsheet.blank?
+      redirect_to import_spreadsheet_admin_speeches_path,
+                  alert: "Please select an XLSX spreadsheet."
+      next
+    end
+
+    unless File.extname(spreadsheet.original_filename).downcase == ".xlsx"
+      redirect_to import_spreadsheet_admin_speeches_path,
+                  alert: "The selected file must be in XLSX format."
+      next
+    end
+
+    result = SpeechImportService.new(spreadsheet).call
+
+    message = [
+      "Spreadsheet imported successfully.",
+      "#{result[:created]} created.",
+      "#{result[:updated]} updated.",
+      "#{result[:unchanged]} unchanged.",
+      "#{result[:total]} total."
+    ].join(" ")
+
+    redirect_to admin_speeches_path, notice: message
+  rescue SpeechImportService::ImportError => error
+    redirect_to import_spreadsheet_admin_speeches_path,
+                alert: "Import failed: #{error.message}"
+  end
+
   member_action :clear_details, method: :patch do
     resource.update!(
       speaker: nil,

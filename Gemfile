@@ -71,3 +71,5 @@ end
 gem "figaro", "~> 1.2"
 
 gem "roo", "~> 3.0"
+
+gem "caxlsx", "~> 4.5", :groups => [:development, :test]
