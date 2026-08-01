@@ -69,3 +69,5 @@ group :development do
 end
 
 gem "figaro", "~> 1.2"
+
+gem "roo", "~> 3.0"
