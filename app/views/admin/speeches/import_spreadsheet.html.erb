@@ -1,0 +1,40 @@
+<div class="panel">
+  <h3>Import Speech Spreadsheet</h3>
+
+  <div class="panel_contents">
+    <p>
+      Upload the annual speech schedule in XLSX format.
+    </p>
+
+    <p>
+      The importer will use only the columns
+      <strong>Data</strong>,
+      <strong>Palestrante</strong> and
+      <strong>Tema</strong>.
+      Other columns will be ignored.
+    </p>
+
+    <p>
+      Existing speeches will be updated by date, and new dates will be created.
+      Dates missing from the spreadsheet will not be deleted.
+    </p>
+
+    <%= form_tag import_spreadsheet_admin_speeches_path,
+                 method: :post,
+                 multipart: true do %>
+
+      <div style="margin-top: 20px; margin-bottom: 20px;">
+        <%= label_tag :spreadsheet, "XLSX file" %>
+        <br>
+        <%= file_field_tag :spreadsheet,
+                           accept: ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                           required: true %>
+      </div>
+
+      <%= submit_tag "Import Spreadsheet",
+                     data: {
+                       turbo_confirm: "Existing speeches with matching dates may be updated. Continue?"
+                     } %>
+    <% end %>
+  </div>
+</div>
